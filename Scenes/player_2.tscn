@@ -1,16 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://cqr7mrda7e8d7"]
 
-[ext_resource type="Texture2D" uid="uid://cpu8d5rrx3lll" path="res://Art/kenney_pixel-platformer/Tiles/Characters/tile_0002.png" id="1_gt8bd"]
-[ext_resource type="Texture2D" uid="uid://b5aik7vrdvwca" path="res://Art/kenney_pixel-platformer/kenney_platformer-art-extended-enemies/tile_0003.png" id="2_bunt7"]
+[ext_resource type="Texture2D" uid="uid://cpu8d5rrx3lll" path="res://Art/kenney_pixel-platformer/Tiles/Characters/tile_0002.png" id="1_m0jxg"]
+[ext_resource type="Texture2D" uid="uid://b5aik7vrdvwca" path="res://Art/kenney_pixel-platformer/kenney_platformer-art-extended-enemies/tile_0003.png" id="2_yftll"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yuge7"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_gt8bd")
+"texture": ExtResource("1_m0jxg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_bunt7")
+"texture": ExtResource("2_yftll")
 }],
 "loop": true,
 "name": &"default",
