@@ -17,10 +17,10 @@ var grounded = false
 
 #Only runs when input happens
 func _input(event):
-	if Input.is_action_pressed("jump_1") and is_on_floor():
+	if Input.is_action_pressed("jump_2") and is_on_floor():
 		jump()
-	if event.is_action("move_1"):
-		move(Input.get_axis("move_left_1", "move_right_1"))
+	if event.is_action("move_2"):
+		move(Input.get_axis("move_left_2", "move_right_2"))
 
 func jump():
 	velocity.y = jump_speed
@@ -33,13 +33,13 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, walk_speed)
 	else:
 		velocity.x = direction * walk_speed
-		
+	
 	if direction>0:
-		$Sword/Sprite2D.flip_h = false
-		$Sword/Sprite2D.position = Vector2(-47,90)
+		$Gun/Sprite2D.flip_h = false
+		$Gun/Sprite2D.position = Vector2(88,80)
 	else:
-		$Sword/Sprite2D.flip_h = true
-		$Sword/Sprite2D.position = Vector2(47,90)
+		$Gun/Sprite2D.flip_h = true
+		$Gun/Sprite2D.position = Vector2(-88,80)
 	move_and_slide()
 
 func ground_check(delta):
