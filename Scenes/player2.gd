@@ -9,6 +9,7 @@ var pickups = 0
 
 @onready var animatedSprite = $AnimatedSprite2D
 
+@export var bullet_scene:PackedScene = preload("res://Scenes/bullet.tscn")
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 @export var gravity:int = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction = 0
@@ -21,6 +22,11 @@ func _input(event):
 		jump()
 	if event.is_action("move_2"):
 		move(Input.get_axis("move_left_2", "move_right_2"))
+	if Input.is_action_pressed("attack_2"):
+		var bullet = bullet_scene.instantiate()
+		bullet.position = $Gun/Barrel.position
+		var bullet_direction = self.direction
+		add_child(bullet)
 
 func jump():
 	velocity.y = jump_speed
@@ -35,11 +41,13 @@ func _physics_process(delta):
 		velocity.x = direction * walk_speed
 	
 	if direction>0:
-		$Gun/Sprite2D.flip_h = false
-		$Gun/Sprite2D.position = Vector2(88,80)
+		#$Gun/Sprite2D.flip_h = false
+		#$Gun/Sprite2D.position = Vector2(88,80)
+		$Gun.scale.x = 1
 	else:
-		$Gun/Sprite2D.flip_h = true
-		$Gun/Sprite2D.position = Vector2(-88,80)
+		#$Gun/Sprite2D.flip_h = true
+		#$Gun/Sprite2D.position = Vector2(-88,80)
+		$Gun.scale.x = -1
 	move_and_slide()
 
 func ground_check(delta):

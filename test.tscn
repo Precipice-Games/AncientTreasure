@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxwgpa8364m3a"]
+[gd_scene load_steps=3 format=3 uid="uid://cxwgpa8364m3a"]
 
-[ext_resource type="PackedScene" uid="uid://bo0ttthw8puw4" path="res://Scenes/player_1.tscn" id="1_bdrcm"]
 [ext_resource type="PackedScene" uid="uid://cqr7mrda7e8d7" path="res://Scenes/player_2.tscn" id="2_ky6w5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nukes"]
@@ -15,7 +14,3 @@ position = Vector2(341, 357)
 shape = SubResource("RectangleShape2D_nukes")
 
 [node name="Player2" parent="." instance=ExtResource("2_ky6w5")]
-visible = false
-
-[node name="Player1" parent="." instance=ExtResource("1_bdrcm")]
-position = Vector2(53.1732, 90.2747)

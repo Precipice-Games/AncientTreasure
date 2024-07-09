@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpnqa2poj0hab"]
+[gd_scene load_steps=4 format=3 uid="uid://cpnqa2poj0hab"]
 
+[ext_resource type="Script" path="res://Scenes/bullet.gd" id="1_fkl0v"]
 [ext_resource type="Texture2D" uid="uid://bdq6povm0gtg1" path="res://Art/kenney_platformer-art-requests (1)/Tiles/laserPurple.png" id="1_uhytj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_afgrs"]
 radius = 5.0
 height = 34.0
 
-[node name="Bullet" type="StaticBody2D"]
+[node name="Bullet" type="Area2D"]
+script = ExtResource("1_fkl0v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_uhytj")
