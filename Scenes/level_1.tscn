@@ -1,6 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://cnhijvp0qixbh"]
+[gd_scene load_steps=29 format=3 uid="uid://cnhijvp0qixbh"]
 
+[ext_resource type="Script" path="res://Scenes/level_1.gd" id="1_dpllr"]
 [ext_resource type="Texture2D" uid="uid://bw27ttd47ahdd" path="res://Art/kenney_pixel-platformer/Tilemap/tilemap.png" id="1_hhaw8"]
+[ext_resource type="Script" path="res://Scenes/CharacterBody2D.gd" id="2_8uk2l"]
 [ext_resource type="Texture2D" uid="uid://bl4fu7x8ugmg5" path="res://Art/kenney_platformer-art-pixel-redux/Tilemap/tilemap.png" id="2_hrx1c"]
 [ext_resource type="Texture2D" uid="uid://dvi6r5n6mpqb5" path="res://Art/kenney_abstract-platformer/Tilesheet/tilesheet_complete.png" id="3_u2lai"]
 [ext_resource type="Texture2D" uid="uid://cgqn6q13ptetr" path="res://Art/kenney_platformer-pack-redux/PNG/Tiles/leverLeft.png" id="4_bwbq7"]
@@ -10,7 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://vtkrn02ikd3j" path="res://Art/kenney_abstract-platformer/PNG/Other/buttonRed.png" id="8_o4ddx"]
 [ext_resource type="Texture2D" uid="uid://djtncksl4g0ss" path="res://Art/kenney_abstract-platformer/PNG/Other/buttonRed_pressed.png" id="9_2vjxj"]
 [ext_resource type="Script" path="res://Scenes/Lava.gd" id="10_s62pg"]
-[ext_resource type="Texture2D" uid="uid://8jcuoq4sy33m" path="res://Art/kenney_platformer-pack-redux/PNG/Tiles/waterTop_high.png" id="11_7qygb"]
+[ext_resource type="Texture2D" uid="uid://bkr7qa71jg12a" path="res://Art/kenney_abstract-platformer/PNG/Other/fluidRed_top.png" id="11_g0pny"]
+[ext_resource type="Texture2D" uid="uid://dwajrfdc8rhyp" path="res://Art/kenney_platformer-pack-redux/PNG/Ground/Grass/grassMid.png" id="13_egnc6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7s2of"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ov2q2"]
 texture = ExtResource("1_hhaw8")
@@ -3704,6 +3709,20 @@ sources/3 = SubResource("TileSetAtlasSource_wir61")
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("6_ypiiy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_074er")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bwbq7")
+}],
+"loop": false,
+"name": &"LeverTurnOff",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("4_bwbq7")
 }, {
 "duration": 1.0,
@@ -3712,19 +3731,27 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_ypiiy")
 }],
-"loop": true,
-"name": &"Lever",
+"loop": false,
+"name": &"LeverTurnOn",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ku4yi"]
 size = Vector2(123.586, 97.2798)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e84aa"]
-size = Vector2(29, 20)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_mojc4"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_2vjxj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_o4ddx")
+}],
+"loop": false,
+"name": &"ButtonOff",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("8_o4ddx")
@@ -3732,96 +3759,183 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("9_2vjxj")
 }],
-"loop": true,
-"name": &"Button",
+"loop": false,
+"name": &"ButtonOn",
 "speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eyel7"]
-radius = 14.0357
+radius = 14.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5v2cu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_g0pny")
+}],
+"loop": true,
+"name": &"Lava",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4x0c"]
+size = Vector2(63, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e84aa"]
+size = Vector2(29, 20)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_um24f"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("9_2vjxj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_o4ddx")
+}],
+"loop": false,
+"name": &"ButtonOff",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("8_o4ddx")
 }, {
 "duration": 1.0,
 "texture": ExtResource("9_2vjxj")
 }],
-"loop": true,
-"name": &"RedButton",
+"loop": false,
+"name": &"ButtonOn",
 "speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4j682"]
-radius = 18.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4x0c"]
-size = Vector2(64, 57)
+radius = 15.0
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(585, 630)
+script = ExtResource("1_dpllr")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(-103, -521)
+script = ExtResource("2_8uk2l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_7s2of")
 
 [node name="Level1" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_pjn1r")
 rendering_quadrant_size = 21
 format = 2
-layer_0/tile_data = PackedInt32Array(-1507338, 131074, 4, -1507337, 131074, 4, -1507336, 131074, 4, -1507335, 131074, 4, -1507334, 131074, 4, -1507333, 131074, 4, -1507332, 131074, 4, -1507331, 131074, 4, -1048578, 131074, 4, -1048577, 131074, 4, -1114112, 131074, 4, -1114111, 131074, 4, -1572862, 131074, 4, -1179646, 524290, 4, -1572861, 131074, 4, -1245181, 524290, 4, -1572860, 131074, 4, -1572859, 131074, 4, -1572858, 131074, 4, -1572857, 131074, 4, -1572856, 131074, 4, -1572855, 131074, 4, -1245175, 524290, 4, -1179658, 524290, 4, -1376249, 524290, 4, -1310715, 524290, 4, -1310728, 524290, 4, -1245190, 524290, 4, -983044, 524290, 4, -1114117, 524290, 4, -983053, 131074, 4, -983052, 131074, 4, -983051, 327682, 5, -983054, 327682, 4, -720911, 131074, 6, -720910, 131074, 6, -720909, 131074, 6, -720908, 131074, 6, -720904, 131074, 6, -720903, 131074, 6, -720902, 131074, 6, -720901, 131074, 6, -720900, 131074, 6, -720899, 393218, 7, -720898, 262146, 7, -720897, 262146, 7, -786432, 262146, 7, -786431, 262146, 7, -786430, 458754, 7, -786429, 131074, 6, -786428, 131074, 6, -786427, 131074, 6, -786426, 131074, 6, -786425, 131074, 6, -917505, 393218, 6, -983040, 458754, 6, -917504, 458754, 7, -851967, 458754, 7, -917503, 458754, 6, -851966, 458754, 6, -851970, 393218, 6, -786435, 393218, 6, -786434, 393218, 7, -851969, 393218, 7, -786433, 262146, 7, -851968, 262146, 7, -1048566, 327682, 4, -1048565, 131074, 4, -1048564, 131074, 4, -1048563, 327682, 5, -917488, 131074, 6, -917487, 131074, 6, -917486, 131074, 6, -917485, 131074, 6, -786420, 131074, 6, -786419, 131074, 6, -786418, 131074, 6, -786417, 131074, 6, -786421, 131074, 6, -720912, 131074, 6, -720913, 131074, 6, -720914, 131074, 6, -720915, 131074, 6, -589816, 524290, 6, -524278, 524290, 6, -262164, 65538, 6, -262163, 65538, 6, -262162, 65538, 6, -262161, 196610, 6, -262156, 65538, 6, -262155, 65538, 6, -262154, 65538, 6, -262153, 65538, 6, -262152, 65538, 6, -262151, 65538, 6, -262150, 65538, 6, -262149, 393218, 7, -262148, 262146, 7, -327680, 262146, 7, -327679, 458754, 7, -327678, 196610, 6, -327677, 65538, 6, -327676, 65538, 6, -327675, 65538, 6, -327674, 65538, 6, -327673, 65538, 6, -327672, 65538, 6, -327671, 65538, 6, -327670, 65538, 6, -327669, 65538, 6, -327668, 65538, 6, -327667, 65538, 6, -327666, 65538, 6, -327665, 65538, 6, -327664, 65538, 6, -327663, 65538, 6, -393220, 393218, 6, -458752, 458754, 6, -327685, 393218, 6, -327684, 393218, 7, -393216, 458754, 7, -393215, 458754, 6, -524273, 327682, 6, -524272, 131074, 6, -524271, 131074, 6, -524270, 131074, 6, -524269, 131074, 6, -524268, 327682, 7)
+layer_0/tile_data = PackedInt32Array(-1507338, 131074, 4, -1507337, 131074, 4, -1507336, 131074, 4, -1507335, 131074, 4, -1507334, 131074, 4, -1507333, 131074, 4, -1507332, 131074, 4, -1507331, 131074, 4, -1048578, 131074, 4, -1048577, 131074, 4, -1114112, 131074, 4, -1114111, 131074, 4, -1572862, 131074, 4, -1179646, 524290, 4, -1572861, 131074, 4, -1245181, 524290, 4, -1572860, 131074, 4, -1572859, 131074, 4, -1572858, 131074, 4, -1572857, 131074, 4, -1572856, 131074, 4, -1572855, 131074, 4, -1245175, 524290, 4, -1179658, 524290, 4, -1376249, 524290, 4, -1310715, 524290, 4, -1310728, 524290, 4, -1245190, 524290, 4, -983044, 524290, 4, -1114117, 524290, 4, -983053, 131074, 4, -983052, 131074, 4, -983051, 327682, 5, -983054, 327682, 4, -1048566, 327682, 4, -1048565, 131074, 4, -1048564, 131074, 4, -1048563, 327682, 5, -262149, 393218, 6, -327684, 393218, 6, -262148, 393218, 7, -720899, 393218, 6, -786434, 393218, 6, -720898, 393218, 7, -851969, 393218, 6, -786433, 393218, 7, -720897, 262146, 7, -917504, 458754, 6, -851968, 458754, 7, -786432, 262146, 7, -393216, 458754, 6, -327680, 458754, 7, -851967, 458754, 6, -786431, 458754, 7, -327679, 458754, 6, -786430, 458754, 6, -196628, 65538, 6, -655379, 131074, 6, -196627, 65538, 6, -655378, 131074, 6, -196626, 65538, 6, -655377, 131074, 6, -196625, 196610, 6, -655376, 131074, 6, -655375, 131074, 6, -655374, 131074, 6, -655373, 131074, 6, -655372, 131074, 6, -196620, 65538, 6, -196619, 65538, 6, -196618, 65538, 6, -196617, 65538, 6, -655368, 131074, 6, -196616, 65538, 6, -655367, 131074, 6, -196615, 65538, 6, -655366, 131074, 6, -196614, 65538, 6, -655365, 131074, 6, -196613, 393218, 7, -655364, 131074, 6, -196612, 262146, 7, -655363, 393218, 7, -655362, 262146, 7, -655361, 262146, 7, -720896, 262146, 7, -262144, 262146, 7, -720895, 262146, 7, -262143, 458754, 7, -720894, 458754, 7, -262142, 196610, 6, -720893, 131074, 6, -262141, 65538, 6, -720892, 131074, 6, -262140, 65538, 6, -720891, 131074, 6, -262139, 65538, 6, -720890, 131074, 6, -262138, 65538, 6, -720889, 131074, 6, -262137, 65538, 6, -524280, 524290, 6, -262136, 65538, 6, -262135, 65538, 6, -458742, 524290, 6, -262134, 65538, 6, -720885, 131074, 6, -262133, 65538, 6, -720884, 131074, 6, -262132, 65538, 6, -720883, 131074, 6, -262131, 65538, 6, -720882, 131074, 6, -262130, 65538, 6, -720881, 131074, 6, -458737, 327682, 6, -262129, 65538, 6, -851952, 131074, 6, -458736, 131074, 6, -262128, 65538, 6, -851951, 131074, 6, -458735, 131074, 6, -262127, 65538, 6, -851950, 131074, 6, -458734, 131074, 6, -851949, 131074, 6, -458733, 131074, 6, -458732, 327682, 7)
 
-[node name="Levers" type="Area2D" parent="."]
+[node name="Lever1" type="Area2D" parent="."]
 script = ExtResource("4_hn0ah")
 
-[node name="Lever1" type="AnimatedSprite2D" parent="Levers"]
+[node name="Lever1" type="AnimatedSprite2D" parent="Lever1"]
 position = Vector2(-178, -516)
 scale = Vector2(0.226562, 0.195313)
 sprite_frames = SubResource("SpriteFrames_0njch")
-animation = &"Lever"
+animation = &"LeverTurnOff"
+frame = 2
+frame_progress = 1.0
 
-[node name="Lever2" type="AnimatedSprite2D" parent="Levers"]
-position = Vector2(177, -517)
-scale = Vector2(0.226562, 0.195313)
-sprite_frames = SubResource("SpriteFrames_0njch")
-animation = &"Lever"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Levers"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lever1"]
 position = Vector2(-178, -514)
 scale = Vector2(0.226562, 0.195313)
 shape = SubResource("RectangleShape2D_ku4yi")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Levers"]
-position = Vector2(176.5, -514)
-shape = SubResource("RectangleShape2D_e84aa")
+[node name="Button1" type="Area2D" parent="."]
 
-[node name="Buttons" type="Area2D" parent="."]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Buttons"]
-position = Vector2(-354, -261)
-scale = Vector2(0.52, 0.637931)
+[node name="Button1" type="AnimatedSprite2D" parent="Button1"]
+position = Vector2(-367.557, -236.072)
+scale = Vector2(0.377735, 0.697379)
 sprite_frames = SubResource("SpriteFrames_mojc4")
-animation = &"Button"
+animation = &"ButtonOn"
+frame = 1
+frame_progress = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Buttons"]
-position = Vector2(-354, -259)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button1"]
+position = Vector2(-367.557, -233.072)
 shape = SubResource("CircleShape2D_eyel7")
-
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Buttons"]
-position = Vector2(299, -116)
-scale = Vector2(0.6, 0.741379)
-sprite_frames = SubResource("SpriteFrames_um24f")
-animation = &"RedButton"
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Buttons"]
-position = Vector2(300, -113)
-shape = SubResource("CircleShape2D_4j682")
 
 [node name="Lava" type="Area2D" parent="."]
 script = ExtResource("10_s62pg")
 
+[node name="Lava" type="AnimatedSprite2D" parent="Lava"]
+position = Vector2(-31.625, -94.5)
+scale = Vector2(0.988281, 0.984375)
+sprite_frames = SubResource("SpriteFrames_5v2cu")
+animation = &"Lava"
+frame_progress = 0.256076
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lava"]
-position = Vector2(-32, -116.5)
+position = Vector2(-31.5, -99)
 shape = SubResource("RectangleShape2D_u4x0c")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lava"]
-position = Vector2(-32, -115)
-scale = Vector2(0.492188, 0.472656)
-texture = ExtResource("11_7qygb")
+[node name="Lever2" type="Area2D" parent="."]
+
+[node name="Lever2" type="AnimatedSprite2D" parent="Lever2"]
+position = Vector2(177, -517)
+scale = Vector2(0.226562, 0.195313)
+sprite_frames = SubResource("SpriteFrames_0njch")
+animation = &"LeverTurnOff"
+frame = 2
+frame_progress = 1.0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Lever2"]
+position = Vector2(176.5, -514)
+shape = SubResource("RectangleShape2D_e84aa")
+
+[node name="Button2" type="Area2D" parent="."]
+
+[node name="Button2" type="AnimatedSprite2D" parent="Button2"]
+position = Vector2(305, -90.25)
+scale = Vector2(0.6, 0.741379)
+sprite_frames = SubResource("SpriteFrames_um24f")
+animation = &"ButtonOff"
+frame = 1
+frame_progress = 1.0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Button2"]
+position = Vector2(305, -90.25)
+shape = SubResource("CircleShape2D_4j682")
+
+[node name="MoveLayer1" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="MoveLayer1"]
+position = Vector2(-31, -515)
+scale = Vector2(0.171875, 0.164062)
+texture = ExtResource("13_egnc6")
+
+[node name="Sprite2D4" type="Sprite2D" parent="MoveLayer1"]
+position = Vector2(31, -515)
+scale = Vector2(0.171875, 0.164062)
+texture = ExtResource("13_egnc6")
+
+[node name="Sprite2D2" type="Sprite2D" parent="MoveLayer1"]
+position = Vector2(-10, -515)
+scale = Vector2(0.15625, 0.164062)
+texture = ExtResource("13_egnc6")
+
+[node name="Sprite2D3" type="Sprite2D" parent="MoveLayer1"]
+position = Vector2(10, -515)
+scale = Vector2(0.15625, 0.164062)
+texture = ExtResource("13_egnc6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 661.0
+offset_top = -881.0
+offset_right = 1719.0
+offset_bottom = 435.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="area_entered" from="Lever1" to="." method="_on_lever_1_area_entered"]
+[connection signal="body_entered" from="Lever1" to="." method="_on_lever_1_area_entered"]
+[connection signal="area_entered" from="Lever2" to="." method="_on_lever_2_area_entered"]
