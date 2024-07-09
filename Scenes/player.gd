@@ -21,7 +21,12 @@ func _input(event):
 		jump()
 	if event.is_action("move_1"):
 		move(Input.get_axis("move_left_1", "move_right_1"))
-
+	if event.is_action("attack_1"):
+		attack()
+	
+func attack():
+	$Sword/Sprite2D/AnimationPlayer.play("hit")
+	
 func jump():
 	velocity.y = jump_speed
 	animatedSprite.play("jump")
@@ -36,10 +41,12 @@ func _physics_process(delta):
 		
 	if direction>0:
 		$Sword/Sprite2D.flip_h = false
-		$Sword/Sprite2D.position = Vector2(-47,90)
+		$Sword.scale.x = 1
+		#$Sword/Sprite2D.position = Vector2(-47,90)
 	else:
 		$Sword/Sprite2D.flip_h = true
-		$Sword/Sprite2D.position = Vector2(47,90)
+		$Sword.scale.x = -1
+		#$Sword/Sprite2D.position = Vector2(47,90)
 	move_and_slide()
 
 func ground_check(delta):

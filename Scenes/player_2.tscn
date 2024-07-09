@@ -57,9 +57,11 @@ position = Vector2(-1, 44)
 shape = SubResource("CapsuleShape2D_gqtj4")
 
 [node name="Gun" type="Node2D" parent="."]
-position = Vector2(88, 80)
 
 [node name="Sprite2D" type="Sprite2D" parent="Gun"]
-position = Vector2(-32, 0)
+position = Vector2(56, 80)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_4jkne")
+
+[node name="Barrel" type="Node2D" parent="Gun"]
+position = Vector2(80, 80)
