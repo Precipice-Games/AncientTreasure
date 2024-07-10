@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxwgpa8364m3a"]
+[gd_scene load_steps=4 format=3 uid="uid://cxwgpa8364m3a"]
 
+[ext_resource type="PackedScene" uid="uid://celo1wf70ips3" path="res://mob.tscn" id="1_w4nc0"]
 [ext_resource type="PackedScene" uid="uid://cqr7mrda7e8d7" path="res://Scenes/player_2.tscn" id="2_ky6w5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nukes"]
@@ -8,9 +9,14 @@ size = Vector2(811.5, 182)
 [node name="test" type="Node"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(341, 357)
 shape = SubResource("RectangleShape2D_nukes")
 
+[node name="Mob" parent="." instance=ExtResource("1_w4nc0")]
+position = Vector2(666, 231)
+
 [node name="Player2" parent="." instance=ExtResource("2_ky6w5")]
+position = Vector2(123, 43)
