@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cnhijvp0qixbh"]
+[gd_scene load_steps=35 format=3 uid="uid://cnhijvp0qixbh"]
 
 [ext_resource type="Script" path="res://Scenes/level_1.gd" id="1_dpllr"]
 [ext_resource type="Script" path="res://Scenes/CharacterBody2D.gd" id="2_8uk2l"]
@@ -14,6 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://bkr7qa71jg12a" path="res://Art/kenney_abstract-platformer/PNG/Other/fluidRed_top.png" id="11_g0pny"]
 [ext_resource type="Texture2D" uid="uid://bbvhsigenil0x" path="res://Art/kenney_platformer-pack-redux/PNG/Ground/Planet/planetMid.png" id="13_3veyf"]
 [ext_resource type="Texture2D" uid="uid://dwajrfdc8rhyp" path="res://Art/kenney_platformer-pack-redux/PNG/Ground/Grass/grassMid.png" id="13_egnc6"]
+[ext_resource type="Texture2D" uid="uid://bxbgdeft80aux" path="res://Art/kenney_jumper-pack 2/PNG/Items/gold_1.png" id="15_ok1ow"]
+[ext_resource type="Texture2D" uid="uid://dqqaivqm12qn0" path="res://Art/kenney_jumper-pack 2/PNG/Items/gold_2.png" id="16_reby7"]
+[ext_resource type="Texture2D" uid="uid://21fmvt2b76fd" path="res://Art/kenney_jumper-pack 2/PNG/Items/gold_3.png" id="17_1hfhb"]
+[ext_resource type="Texture2D" uid="uid://0wcndm7caf2v" path="res://Art/kenney_jumper-pack 2/PNG/Items/gold_4.png" id="18_wh6or"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7s2of"]
 
@@ -5152,6 +5156,49 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_4j682"]
 radius = 15.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_q3xy2"]
+animations = [{
+"frames": [{
+"duration": 0.75,
+"texture": ExtResource("15_ok1ow")
+}, {
+"duration": 0.75,
+"texture": ExtResource("16_reby7")
+}, {
+"duration": 0.75,
+"texture": ExtResource("17_1hfhb")
+}, {
+"duration": 0.75,
+"texture": ExtResource("18_wh6or")
+}],
+"loop": true,
+"name": &"SpinningCoin",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_modo2"]
+radius = 7.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_61yq2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_ok1ow")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_reby7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_1hfhb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_wh6or")
+}],
+"loop": true,
+"name": &"SpinningCoin",
+"speed": 5.0
+}]
+
 [node name="Node2D" type="Node2D"]
 position = Vector2(585, 630)
 script = ExtResource("1_dpllr")
@@ -5263,6 +5310,7 @@ scale = Vector2(0.15625, 0.164062)
 texture = ExtResource("13_egnc6")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -5319,6 +5367,94 @@ position = Vector2(-197, -220)
 
 [node name="Layer2End" type="Node2D" parent="."]
 position = Vector2(-292, -71)
+
+[node name="Coin1" type="Area2D" parent="."]
+visible = false
+position = Vector2(199, -406)
+
+[node name="Coin1Spr" type="AnimatedSprite2D" parent="Coin1"]
+visible = false
+scale = Vector2(0.169643, 0.154762)
+sprite_frames = SubResource("SpriteFrames_q3xy2")
+animation = &"SpinningCoin"
+
+[node name="Coin1Coll" type="CollisionShape2D" parent="Coin1"]
+visible = false
+shape = SubResource("CircleShape2D_modo2")
+
+[node name="Coin2" type="Area2D" parent="."]
+visible = false
+position = Vector2(492, -354)
+
+[node name="Coin2Spr" type="AnimatedSprite2D" parent="Coin2"]
+visible = false
+position = Vector2(0, 1)
+sprite_frames = SubResource("SpriteFrames_61yq2")
+animation = &"SpinningCoin"
+
+[node name="Coin2Coll" type="CollisionShape2D" parent="Coin2"]
+visible = false
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_modo2")
+
+[node name="Coin3" type="Area2D" parent="."]
+visible = false
+position = Vector2(500, -239)
+
+[node name="Coin3Spr" type="AnimatedSprite2D" parent="Coin3"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_61yq2")
+animation = &"SpinningCoin"
+
+[node name="Coin3Coll" type="CollisionShape2D" parent="Coin3"]
+visible = false
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_modo2")
+
+[node name="Coin4" type="Area2D" parent="."]
+visible = false
+position = Vector2(-645, 22)
+
+[node name="Coin4Spr" type="AnimatedSprite2D" parent="Coin4"]
+visible = false
+position = Vector2(1, 0)
+sprite_frames = SubResource("SpriteFrames_61yq2")
+animation = &"SpinningCoin"
+
+[node name="Coin4Coll" type="CollisionShape2D" parent="Coin4"]
+visible = false
+position = Vector2(2, 1)
+shape = SubResource("CircleShape2D_modo2")
+
+[node name="Coin5" type="Area2D" parent="."]
+visible = false
+position = Vector2(-652, -82)
+
+[node name="Coin5Spr" type="AnimatedSprite2D" parent="Coin5"]
+visible = false
+position = Vector2(1, 2)
+sprite_frames = SubResource("SpriteFrames_61yq2")
+animation = &"SpinningCoin"
+
+[node name="Coin5Coll" type="CollisionShape2D" parent="Coin5"]
+visible = false
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_modo2")
+
+[node name="Coin6" type="Area2D" parent="."]
+visible = false
+position = Vector2(-157, -448)
+
+[node name="Coin6Spr" type="AnimatedSprite2D" parent="Coin6"]
+visible = false
+position = Vector2(-1.90735e-06, -2.86102e-06)
+scale = Vector2(0.166667, 0.154762)
+sprite_frames = SubResource("SpriteFrames_61yq2")
+animation = &"SpinningCoin"
+
+[node name="Coin6Coll" type="CollisionShape2D" parent="Coin6"]
+visible = false
+shape = SubResource("CircleShape2D_modo2")
 
 [connection signal="area_entered" from="Lever1" to="." method="_on_lever_1_area_entered"]
 [connection signal="body_entered" from="Lever1" to="." method="_on_lever_1_area_entered"]
