@@ -2,8 +2,11 @@ extends CharacterBody2D
 
 @export var speed:int = 0
 var direction = 1
+@export var jump_speed = -600
+@export var gravity:int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var player_detected:bool = false
+var can_jump:bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,17 +15,36 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	if player_detected:
-		jump():
+	
+	if not is_on_floor():
+		velocity.y += gravity * delta
+		# and also check_player()
+	else:
+		can_jump=true
+		check_floor()
+	
+	if player_detected and can_jump:
 		velocity.y = jump_speed
-		animatedSprite.play("attack")
+		$AnimatedSprite2D.play("attack")
+		can_jump=false
 	else:
 		velocity.x = direction * speed
+	
 	move_and_slide()
 
 func check_floor():
 	if not $FloorCheck.is_colliding():
+		$FloorCheck.position.x *= -1
 		direction = direction * -1
+		$AnimatedSprite2D.play("walk")
 
-func _on_player_detection_area_entered(area):
+# write a check_player() function
+	# if the raycast is colliding, then check if the thing it's colliding with is the player
+	# if so... then damage the player
+
+
+func _on_player_detection_body_entered(body):
 	player_detected = true
+
+func _on_player_detection_body_exited(body):
+	player_detected = false
