@@ -1,0 +1,100 @@
+[gd_scene load_steps=13 format=3 uid="uid://celo1wf70ips3"]
+
+[ext_resource type="Script" path="res://mob.gd" id="1_5yaym"]
+[ext_resource type="Texture2D" uid="uid://bcmreemkoles2" path="res://Art/kenney_abstract-platformer/PNG/Players/Player Red/playerRed_stand.png" id="1_qpy40"]
+[ext_resource type="Texture2D" uid="uid://b2c1ymsyp4ygt" path="res://Art/kenney_abstract-platformer/PNG/Players/Player Red/playerRed_up2.png" id="2_qreph"]
+[ext_resource type="Texture2D" uid="uid://t7h444rn3f6t" path="res://Art/kenney_abstract-platformer/PNG/Players/Player Red/playerRed_hit.png" id="3_espu2"]
+[ext_resource type="Texture2D" uid="uid://5xtstxfkcmd1" path="res://Art/kenney_abstract-platformer/PNG/Players/Player Red/playerRed_fall.png" id="4_48c5r"]
+[ext_resource type="Texture2D" uid="uid://266qpq1n6ass" path="res://Art/kenney_abstract-platformer/PNG/Players/Player Red/playerRed_duck.png" id="5_il45y"]
+[ext_resource type="Texture2D" uid="uid://bfe4dikp458o6" path="res://Art/kenney_abstract-platformer/PNG/Players/Player Red/playerRed_dead.png" id="6_edkwj"]
+[ext_resource type="Texture2D" uid="uid://cki0q5sm0jft1" path="res://Art/kenney_abstract-platformer/PNG/Players/Player Red/playerRed_walk2.png" id="7_ws7j7"]
+[ext_resource type="Texture2D" uid="uid://t60uvb0wv865" path="res://Art/kenney_abstract-platformer/PNG/Players/Player Red/playerRed_walk3.png" id="8_hfvnp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uif6t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qpy40")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qreph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_espu2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_48c5r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_il45y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_qpy40")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qpy40")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_edkwj")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qpy40")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ws7j7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hfvnp")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nh7ut"]
+size = Vector2(37, 37)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u1xsq"]
+radius = 166.003
+
+[node name="Mob" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_5yaym")
+speed = 400
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uif6t")
+animation = &"walk"
+frame_progress = 0.237717
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -3.5)
+shape = SubResource("RectangleShape2D_nh7ut")
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+shape = SubResource("CircleShape2D_u1xsq")
+
+[node name="FloorCheck" type="RayCast2D" parent="."]
+position = Vector2(20, 0)
+
+[connection signal="area_entered" from="PlayerDetection" to="." method="_on_player_detection_area_entered"]
