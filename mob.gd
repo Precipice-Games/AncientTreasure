@@ -18,7 +18,7 @@ func _physics_process(delta):
 	
 	if not is_on_floor():
 		velocity.y += gravity * delta
-		# and also check_player()
+		# TODO also call check_player()
 	else:
 		can_jump=true
 		check_floor()
@@ -38,6 +38,12 @@ func check_floor():
 		direction = direction * -1
 		$AnimatedSprite2D.play("walk")
 
+func check_player():
+	if $FloorCheck.is_colliding():
+		var collider = $FloorCheck.get_collider()
+		if collider.is_in_group("players"):
+			print("Hit the player!")
+			collider.take_damage(25) # TODO make sure to move the take_damage function into the Player scripts
 # write a check_player() function
 	# if the raycast is colliding, then check if the thing it's colliding with is the player
 	# if so... then damage the player

@@ -3,7 +3,7 @@ extends CharacterBody2D
 signal landed
 var pickups = 0
 
-@export var walk_speed = 300.0
+@export var walk_speed = 700.0
 @export var jump_speed = -500.0
 
 @onready var animatedSprite = $AnimatedSprite2D
