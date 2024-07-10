@@ -24,9 +24,9 @@ func _input(event):
 		move(Input.get_axis("move_left_2", "move_right_2"))
 	if Input.is_action_pressed("attack_2"):
 		var bullet = bullet_scene.instantiate()
-		bullet.position = $Gun/Barrel.position
-		var bullet_direction = self.direction
-		add_child(bullet)
+		bullet.initialize(self.direction)
+		bullet.global_position = $Gun/Barrel.global_position
+		get_tree().root.get_child(0).add_child(bullet)
 
 func jump():
 	velocity.y = jump_speed
@@ -41,12 +41,8 @@ func _physics_process(delta):
 		velocity.x = direction * walk_speed
 	
 	if direction>0:
-		#$Gun/Sprite2D.flip_h = false
-		#$Gun/Sprite2D.position = Vector2(88,80)
 		$Gun.scale.x = 1
 	else:
-		#$Gun/Sprite2D.flip_h = true
-		#$Gun/Sprite2D.position = Vector2(-88,80)
 		$Gun.scale.x = -1
 	move_and_slide()
 
