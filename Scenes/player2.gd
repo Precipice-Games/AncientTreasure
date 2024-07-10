@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 signal landed
-
 var pickups = 0
 
 @export var walk_speed = 300.0
@@ -25,8 +24,8 @@ func _input(event):
 	if Input.is_action_pressed("attack_2"):
 		var bullet = bullet_scene.instantiate()
 		bullet.initialize(self.direction)
-		bullet.global_position = $Gun/Barrel.global_position
 		get_tree().root.get_child(0).add_child(bullet)
+		bullet.global_position = $Gun/Barrel.global_position
 
 func jump():
 	velocity.y = jump_speed

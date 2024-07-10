@@ -18,6 +18,7 @@ func _physics_process(delta):
 	
 	if not is_on_floor():
 		velocity.y += gravity * delta
+		# and also check_player()
 	else:
 		can_jump=true
 		check_floor()
@@ -37,12 +38,13 @@ func check_floor():
 		direction = direction * -1
 		$AnimatedSprite2D.play("walk")
 
+# write a check_player() function
+	# if the raycast is colliding, then check if the thing it's colliding with is the player
+	# if so... then damage the player
+
 
 func _on_player_detection_body_entered(body):
-	print("jump")
 	player_detected = true
 
-
 func _on_player_detection_body_exited(body):
-	print("player gone")
 	player_detected = false

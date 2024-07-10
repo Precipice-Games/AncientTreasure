@@ -40,9 +40,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jiwvk"]
-radius = 50.0
-height = 130.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m8k62"]
+size = Vector2(91, 150)
 
 [sub_resource type="Animation" id="Animation_nchop"]
 length = 0.001
@@ -87,11 +86,11 @@ script = ExtResource("1_ko5va")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_34hsi")
-animation = &"walk"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 44)
-shape = SubResource("CapsuleShape2D_jiwvk")
+position = Vector2(-3.5, 53)
+shape = SubResource("RectangleShape2D_m8k62")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
