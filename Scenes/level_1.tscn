@@ -729,11 +729,11 @@ position = Vector2(-834, -1605)
 player1 = NodePath("../Player1")
 player2 = NodePath("../Player2")
 
-[node name="Player2" parent="Cam" instance=ExtResource("15_he5mu")]
-position = Vector2(-999, -1799)
-
 [node name="Player1" parent="Cam" instance=ExtResource("14_5a570")]
-position = Vector2(3121, -1803)
+position = Vector2(3349, -1816)
+
+[node name="Player2" parent="Cam" instance=ExtResource("15_he5mu")]
+position = Vector2(-1118, -1790)
 
 [node name="Layer4" type="StaticBody2D" parent="."]
 position = Vector2(-1684, 985)
