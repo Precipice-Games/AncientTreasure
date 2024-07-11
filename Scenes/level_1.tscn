@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://com41isoe8gcn"]
+[gd_scene load_steps=32 format=3 uid="uid://com41isoe8gcn"]
 
 [ext_resource type="Script" path="res://Scenes/level_1.gd" id="1_imnaf"]
 [ext_resource type="Texture2D" uid="uid://r5s7m33v4335" path="res://Art/kenney_platformer-pack-redux/Spritesheets/spritesheet_ground.png" id="4_voyyq"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://u82vhebonun" path="res://Scenes/coin.tscn" id="13_cux4k"]
 [ext_resource type="PackedScene" uid="uid://bo0ttthw8puw4" path="res://Scenes/player_1.tscn" id="14_5a570"]
 [ext_resource type="PackedScene" uid="uid://cqr7mrda7e8d7" path="res://Scenes/player_2.tscn" id="15_he5mu"]
+[ext_resource type="PackedScene" uid="uid://celo1wf70ips3" path="res://mob.tscn" id="17_po02m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eoi8t"]
 texture = ExtResource("4_voyyq")
@@ -761,6 +762,18 @@ texture = ExtResource("11_7ieb1")
 position = Vector2(211.5, -25)
 scale = Vector2(1.00781, 1)
 texture = ExtResource("11_7ieb1")
+
+[node name="Mob" parent="." instance=ExtResource("17_po02m")]
+position = Vector2(-1835, -163)
+
+[node name="Mob2" parent="." instance=ExtResource("17_po02m")]
+position = Vector2(1807, 478)
+
+[node name="Mob3" parent="." instance=ExtResource("17_po02m")]
+position = Vector2(3104, -1199)
+
+[node name="Mob4" parent="." instance=ExtResource("17_po02m")]
+position = Vector2(-2243, 849)
 
 [connection signal="area_entered" from="Lever1" to="." method="_on_lever_1_area_entered"]
 [connection signal="body_entered" from="Lever1" to="." method="_on_lever_1_area_entered"]

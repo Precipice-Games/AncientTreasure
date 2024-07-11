@@ -85,7 +85,7 @@ func _on_lava_body_entered(body):
 
 func layer4():
 	if lever3Pulled and lever4Pulled:
-		create_tween().tween_property($Layer4, "global_position", Vector2(-1184, 985), 1)
+		create_tween().tween_property($Layer4, "global_position", $Layer4.global_position + Vector2(500, 0), 1)
 	#else:
 		#create_tween().tween_property($Layer4, "global_position", Vector2(-1684, 985), 1)
 
