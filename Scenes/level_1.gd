@@ -4,6 +4,9 @@ var currency = 0
 @export var lever1Pulled:bool = false
 @export var lever2Pulled:bool = false
 
+@export var lever3Pulled:bool = false
+@export var lever4Pulled:bool = false
+
 @export var button1on:bool = false
 @export var button2on:bool = false
 
@@ -65,7 +68,7 @@ func _on_button_2_body_entered(body):
 func _on_button_1_body_exited(body):
 	$Button1/Button1.play("ButtonOff")
 	button1on = false
-	create_tween().tween_property($Layer3, "global_position", $Layer3.global_position + Vector2(600, 0), 1)
+	create_tween().tween_property($Layer3, "global_position", $Layer3.global_position + Vector2(700, 0), 1)
 
 
 func _on_button_2_body_exited(body):
@@ -80,30 +83,34 @@ func _on_lava_body_entered(body):
 	game_over()
 
 
+func layer4():
+	if lever3Pulled and lever4Pulled:
+		create_tween().tween_property($Layer4, "global_position", Vector2(-1184, 985), 1)
+	#else:
+		#create_tween().tween_property($Layer4, "global_position", Vector2(-1684, 985), 1)
+
+
+
 func _on_lever_3_area_entered(area):
-	if lever1Pulled == true:
-		$Lever1/Lever1.play("LeverTurnOff")
-		lever1Pulled = false
+	if lever3Pulled == true:
+		$Lever3/Lever3.play("LeverTurnOff")
+		lever3Pulled = false
 	else:
-		$Lever1/Lever1.play("LeverTurnOn")
+		$Lever3/Lever3.play("LeverTurnOn")
 	#set the bool
 	#layer1 check
-		lever1Pulled = true
-	layer1()
-
-
-
-
-func _on_lever_3_area_exited(area):
-	pass # Replace with function body.
-
-
+		lever3Pulled = true
+	layer4()
 
 
 func _on_lever_4_area_entered(area):
-	pass # Replace with function body.
+	if lever4Pulled == true:
+		$Lever4/Lever4.play("LeverTurnOff")
+		lever4Pulled = false
+	else:
+		$Lever4/Lever4.play("LeverTurnOn")
+	#set the bool
+	#layer1 check
+		lever4Pulled = true
+	layer4()
 
-
-
-func _on_lever_4_area_exited(area):
-	pass # Replace with function body.
