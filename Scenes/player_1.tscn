@@ -93,6 +93,7 @@ position = Vector2(-3.5, 53)
 shape = SubResource("RectangleShape2D_m8k62")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 
 [node name="Sword" type="Node2D" parent="."]
 

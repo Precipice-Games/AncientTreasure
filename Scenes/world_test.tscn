@@ -1,11 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://br7o8sq3hqaoi"]
+[gd_scene load_steps=4 format=3 uid="uid://cgf3nfmx5uqol"]
 
 [ext_resource type="Script" path="res://TeamCamera.gd" id="1_laak2"]
 [ext_resource type="PackedScene" uid="uid://bo0ttthw8puw4" path="res://Scenes/player_1.tscn" id="2_7a28c"]
 [ext_resource type="PackedScene" uid="uid://cqr7mrda7e8d7" path="res://Scenes/player_2.tscn" id="3_2lp38"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6uho0"]
-size = Vector2(4285, 311)
 
 [node name="WorldTest" type="Node2D"]
 
@@ -21,9 +18,3 @@ position = Vector2(966, 421)
 
 [node name="Player2" parent="Players" instance=ExtResource("3_2lp38")]
 position = Vector2(802, 433)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1513.5, 837)
-shape = SubResource("RectangleShape2D_6uho0")
