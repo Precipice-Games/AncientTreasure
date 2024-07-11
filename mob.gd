@@ -71,4 +71,5 @@ func take_damage(amount):
 	if hp<0:
 		print("dead")
 		$AnimatedSprite2D.play("death")
+		await get_tree().create_timer(1.5).timeout
 		queue_free()

@@ -81,9 +81,6 @@ func _on_landed():
 func jump_finished():
 	if grounded:
 		animatedSprite.play("idle")
-	else:
-		animatedSprite.play("Fall")
-
 
 
 func take_damage(amount):

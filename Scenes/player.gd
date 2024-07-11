@@ -30,8 +30,11 @@ func _input(event):
 		attack()
 	
 func attack():
+	$Sword/Sprite2D/Area2D/HitBox.disabled = false
 	$Sword/Sprite2D/AnimationPlayer.play("hit")
-	
+	await get_tree().create_timer(0.7).timeout
+	$Sword/Sprite2D/Area2D/HitBox.disabled = true
+
 func jump():
 	velocity.y = jump_speed
 	animatedSprite.play("jump")
@@ -53,7 +56,6 @@ func _physics_process(delta):
 		$Sword.scale.x = -1
 		#$Sword/Sprite2D.position = Vector2(47,90)
 	move_and_slide()
-	$Sword/Sprite2D/Area2D/HitBox.disabled = true
 
 func ground_check(delta):
 	var was_grounded = grounded
@@ -96,7 +98,6 @@ func take_damage(amount):
 
 
 func _on_area_2d_body_entered(body):
-	$Sword/Sprite2D/Area2D/HitBox.disabled = true
 	if body.is_in_group("mobs"):
 		body.take_damage(30)
 		print("attack_sword")

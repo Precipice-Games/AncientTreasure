@@ -3,7 +3,7 @@ extends Area2D
 @export var speed = 500
 var velocity = Vector2(1, 0)
 
-func _physics_process(delta): ##TODO move in direction
+func _physics_process(delta): 
 	position += velocity * delta
 	
 #func _ready():
