@@ -7,6 +7,7 @@ var direction = 1
 
 var player_detected:bool = false
 var can_jump:bool = true
+var can_attack:bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,7 +19,7 @@ func _physics_process(delta):
 	
 	if not is_on_floor():
 		velocity.y += gravity * delta
-		# TODO also call check_player()
+		check_player()
 	else:
 		can_jump=true
 		check_floor()
@@ -41,12 +42,13 @@ func check_floor():
 func check_player():
 	if $FloorCheck.is_colliding():
 		var collider = $FloorCheck.get_collider()
-		if collider.is_in_group("players"):
-			print("Hit the player!")
-			collider.take_damage(25) # TODO make sure to move the take_damage function into the Player scripts
-# write a check_player() function
-	# if the raycast is colliding, then check if the thing it's colliding with is the player
-	# if so... then damage the player
+		if collider.is_in_group("players") and can_attack:
+			print("attack")
+			collider.take_damage(25)
+			$AttackTimer.start()
+			can_attack=false
+		else:
+			print("not ready")
 
 
 func _on_player_detection_body_entered(body):
@@ -54,3 +56,7 @@ func _on_player_detection_body_entered(body):
 
 func _on_player_detection_body_exited(body):
 	player_detected = false
+
+
+func _on_attack_timer_timeout():
+	can_attack=true

@@ -5,7 +5,7 @@ signal landed
 var pickups = 0
 
 @export var walk_speed = 700.0
-@export var jump_speed = -500.0
+@export var jump_speed = -700.0
 
 @onready var animatedSprite = $AnimatedSprite2D
 
@@ -14,6 +14,11 @@ var pickups = 0
 var direction = 0
 var grounded = false
 
+signal damaged(by)
+signal killed()
+
+const HP_MAX = 150.0
+var hp = HP_MAX
 
 #Only runs when input happens
 func _input(event):
@@ -81,3 +86,15 @@ func jump_finished():
 		animatedSprite.play("idle")
 	else:
 		animatedSprite.play("Fall")
+
+func take_damage(impact):
+	impact = clamp(impact, 0.0, 1.0)
+	var damage = HP_MAX * impact
+	var prev_hp = hp
+	hp -= damage
+	hp = clamp(hp, 0, HP_MAX)
+	
+	if prev_hp != hp:
+		emit_signal("damaged", damage)
+	if hp <= 0.0:
+		emit_signal("killed")
