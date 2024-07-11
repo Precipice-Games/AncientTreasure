@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgf3nfmx5uqol"]
+[gd_scene load_steps=4 format=3 uid="uid://br7o8sq3hqaoi"]
 
 [ext_resource type="Script" path="res://TeamCamera.gd" id="1_laak2"]
 [ext_resource type="PackedScene" uid="uid://bo0ttthw8puw4" path="res://Scenes/player_1.tscn" id="2_7a28c"]

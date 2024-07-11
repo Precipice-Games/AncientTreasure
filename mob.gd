@@ -70,3 +70,5 @@ func take_damage(amount):
 	hp-=amount
 	if hp<0:
 		print("dead")
+		$AnimatedSprite2D.play("death")
+		queue_free()
