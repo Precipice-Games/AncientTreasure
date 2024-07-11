@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://com41isoe8gcn"]
+[gd_scene load_steps=28 format=3 uid="uid://com41isoe8gcn"]
 
 [ext_resource type="Script" path="res://Scenes/level_1.gd" id="1_imnaf"]
 [ext_resource type="Texture2D" uid="uid://r5s7m33v4335" path="res://Art/kenney_platformer-pack-redux/Spritesheets/spritesheet_ground.png" id="4_voyyq"]
@@ -8,15 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://cgqn6q13ptetr" path="res://Art/kenney_platformer-pack-redux/PNG/Tiles/leverLeft.png" id="8_0nbs1"]
 [ext_resource type="Texture2D" uid="uid://djtncksl4g0ss" path="res://Art/kenney_abstract-platformer/PNG/Other/buttonRed_pressed.png" id="9_6h5mx"]
 [ext_resource type="Texture2D" uid="uid://vtkrn02ikd3j" path="res://Art/kenney_abstract-platformer/PNG/Other/buttonRed.png" id="10_1t8io"]
+[ext_resource type="Texture2D" uid="uid://csg6p6wy4gngu" path="res://Art/kenney_platformer-pack-redux/PNG/Ground/Sand/sandMid.png" id="11_7ieb1"]
 [ext_resource type="Script" path="res://Scenes/Lava.gd" id="11_eowgx"]
 [ext_resource type="Texture2D" uid="uid://dwajrfdc8rhyp" path="res://Art/kenney_platformer-pack-redux/PNG/Ground/Grass/grassMid.png" id="13_2e0v5"]
-[ext_resource type="Texture2D" uid="uid://bbvhsigenil0x" path="res://Art/kenney_platformer-pack-redux/PNG/Ground/Planet/planetMid.png" id="14_437g3"]
-[ext_resource type="Texture2D" uid="uid://bxbgdeft80aux" path="res://Art/kenney_jumper-pack 2/PNG/Items/gold_1.png" id="15_tx2fv"]
-[ext_resource type="Texture2D" uid="uid://dqqaivqm12qn0" path="res://Art/kenney_jumper-pack 2/PNG/Items/gold_2.png" id="16_qi7ck"]
-[ext_resource type="Texture2D" uid="uid://21fmvt2b76fd" path="res://Art/kenney_jumper-pack 2/PNG/Items/gold_3.png" id="17_rp4o3"]
+[ext_resource type="PackedScene" uid="uid://u82vhebonun" path="res://Scenes/coin.tscn" id="13_cux4k"]
 [ext_resource type="PackedScene" uid="uid://bo0ttthw8puw4" path="res://Scenes/player_1.tscn" id="18_lfuly"]
 [ext_resource type="PackedScene" uid="uid://cqr7mrda7e8d7" path="res://Scenes/player_2.tscn" id="18_np6vn"]
-[ext_resource type="Texture2D" uid="uid://0wcndm7caf2v" path="res://Art/kenney_jumper-pack 2/PNG/Items/gold_4.png" id="18_sxgtr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eoi8t"]
 texture = ExtResource("4_voyyq")
@@ -428,11 +425,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_eyel7"]
 radius = 77.0584
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4x0c"]
-size = Vector2(255, 280)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e84aa"]
-size = Vector2(93, 63)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojvyp"]
+size = Vector2(81, 20)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_um24f"]
 animations = [{
@@ -462,62 +456,21 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_4j682"]
 radius = 98.656
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkbay"]
+size = Vector2(645, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4x0c"]
+size = Vector2(255, 280)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e84aa"]
+size = Vector2(93, 63)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pwnq8"]
 size = Vector2(518, 128)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojvyp"]
-size = Vector2(81, 20)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_q3xy2"]
-animations = [{
-"frames": [{
-"duration": 0.75,
-"texture": ExtResource("15_tx2fv")
-}, {
-"duration": 0.75,
-"texture": ExtResource("16_qi7ck")
-}, {
-"duration": 0.75,
-"texture": ExtResource("17_rp4o3")
-}, {
-"duration": 0.75,
-"texture": ExtResource("18_sxgtr")
-}],
-"loop": true,
-"name": &"SpinningCoin",
-"speed": 5.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_modo2"]
-radius = 53.0
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_61yq2"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("15_tx2fv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_qi7ck")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_rp4o3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_sxgtr")
-}],
-"loop": true,
-"name": &"SpinningCoin",
-"speed": 5.0
-}]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(585, 630)
 script = ExtResource("1_imnaf")
-lever1Pulled = null
-lever2Pulled = null
-button1on = null
-button2on = null
 
 [node name="Level1" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_884wr")
@@ -545,6 +498,7 @@ shape = SubResource("RectangleShape2D_ku4yi")
 
 [node name="Button1" type="Area2D" parent="."]
 position = Vector2(-1991, -171)
+collision_mask = 2
 
 [node name="Button1" type="AnimatedSprite2D" parent="Button1"]
 position = Vector2(-5.00003, 9.99999)
@@ -557,6 +511,65 @@ frame_progress = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Button1"]
 position = Vector2(-4, 41)
 shape = SubResource("CircleShape2D_eyel7")
+
+[node name="Layer2" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(-170, -594)
+metadata/_edit_group_ = true
+
+[node name="PlanetMid4" type="Sprite2D" parent="Layer2"]
+position = Vector2(31.75, -1.06252)
+scale = Vector2(0.167969, 0.161133)
+texture = ExtResource("11_7ieb1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Layer2"]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_ojvyp")
+
+[node name="Button2" type="Area2D" parent="."]
+position = Vector2(1665, 471)
+
+[node name="Button2" type="AnimatedSprite2D" parent="Button2"]
+position = Vector2(6.00003, 2.99998)
+scale = Vector2(3.486, 4.015)
+sprite_frames = SubResource("SpriteFrames_um24f")
+animation = &"ButtonOn"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Button2"]
+position = Vector2(6, 31)
+shape = SubResource("CircleShape2D_4j682")
+
+[node name="Layer3" type="StaticBody2D" parent="."]
+position = Vector2(2122, -6)
+
+[node name="Layer3Coll" type="CollisionShape2D" parent="Layer3"]
+position = Vector2(630.5, -58)
+shape = SubResource("RectangleShape2D_jkbay")
+
+[node name="Ground" type="Sprite2D" parent="Layer3"]
+position = Vector2(374, -58.128)
+scale = Vector2(1, 0.998)
+texture = ExtResource("11_7ieb1")
+
+[node name="Ground2" type="Sprite2D" parent="Layer3"]
+position = Vector2(756, -58)
+scale = Vector2(1.004, 1)
+texture = ExtResource("11_7ieb1")
+
+[node name="Ground3" type="Sprite2D" parent="Layer3"]
+position = Vector2(629, -58)
+scale = Vector2(1.004, 1)
+texture = ExtResource("11_7ieb1")
+
+[node name="Ground4" type="Sprite2D" parent="Layer3"]
+position = Vector2(501, -58)
+scale = Vector2(1.004, 1)
+texture = ExtResource("11_7ieb1")
+
+[node name="Ground5" type="Sprite2D" parent="Layer3"]
+position = Vector2(885.5, -58)
+scale = Vector2(1.027, 1)
+texture = ExtResource("11_7ieb1")
 
 [node name="Lava" type="Area2D" parent="."]
 script = ExtResource("11_eowgx")
@@ -584,19 +597,6 @@ frame_progress = 1.0
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Lever2"]
 position = Vector2(0.5, 9.5)
 shape = SubResource("RectangleShape2D_e84aa")
-
-[node name="Button2" type="Area2D" parent="."]
-position = Vector2(1665, 471)
-
-[node name="Button2" type="AnimatedSprite2D" parent="Button2"]
-position = Vector2(6.00003, 2.99998)
-scale = Vector2(3.486, 4.015)
-sprite_frames = SubResource("SpriteFrames_um24f")
-animation = &"ButtonOn"
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Button2"]
-position = Vector2(6, 31)
-shape = SubResource("CircleShape2D_4j682")
 
 [node name="Layer1" type="StaticBody2D" parent="."]
 collision_mask = 6
@@ -636,155 +636,51 @@ offset_bottom = 407.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Layer2" type="Node2D" parent="."]
-visible = false
-position = Vector2(-198, -218)
-metadata/_edit_group_ = true
-
-[node name="PlanetMid" type="Sprite2D" parent="Layer2"]
-visible = false
-position = Vector2(0, -3)
-scale = Vector2(0.224609, 0.191406)
-texture = ExtResource("14_437g3")
-
-[node name="Layer3" type="Node2D" parent="."]
-visible = false
-position = Vector2(-170, -594)
-metadata/_edit_group_ = true
-
-[node name="PlanetMid" type="Sprite2D" parent="Layer3"]
-position = Vector2(-30.5, -1.375)
-scale = Vector2(0.164063, 0.166016)
-texture = ExtResource("14_437g3")
-
-[node name="PlanetMid2" type="Sprite2D" parent="Layer3"]
-position = Vector2(-10, -1.25002)
-scale = Vector2(0.164063, 0.164063)
-texture = ExtResource("14_437g3")
-
-[node name="PlanetMid3" type="Sprite2D" parent="Layer3"]
-position = Vector2(10.75, -1.0625)
-scale = Vector2(0.160156, 0.161133)
-texture = ExtResource("14_437g3")
-
-[node name="PlanetMid4" type="Sprite2D" parent="Layer3"]
-position = Vector2(31.75, -1.06252)
-scale = Vector2(0.167969, 0.161133)
-texture = ExtResource("14_437g3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Layer3"]
-position = Vector2(1.5, 0)
-shape = SubResource("RectangleShape2D_ojvyp")
-
-[node name="Layer3Start" type="Node2D" parent="."]
-visible = false
-position = Vector2(195, -220)
-
-[node name="Layer3End" type="Node2D" parent="."]
-visible = false
-position = Vector2(288, -220)
-
-[node name="Layer2Start" type="Node2D" parent="."]
-visible = false
-position = Vector2(-197, -220)
-
-[node name="Layer2End" type="Node2D" parent="."]
-visible = false
-position = Vector2(-292, -71)
-
-[node name="Coin1" type="Area2D" parent="."]
-position = Vector2(-447, -1474)
-
-[node name="Coin1Spr" type="AnimatedSprite2D" parent="Coin1"]
-position = Vector2(0.999998, 7.00001)
-scale = Vector2(1.18394, 1.17857)
-sprite_frames = SubResource("SpriteFrames_q3xy2")
-animation = &"SpinningCoin"
-frame_progress = 0.733773
-
-[node name="Coin1Coll" type="CollisionShape2D" parent="Coin1"]
-position = Vector2(1, 6)
-shape = SubResource("CircleShape2D_modo2")
-
-[node name="Coin2" type="Area2D" parent="."]
-position = Vector2(1087, -1597)
-
-[node name="Coin2Spr" type="AnimatedSprite2D" parent="Coin2"]
-position = Vector2(1, 5)
-scale = Vector2(1.25, 1.25)
-sprite_frames = SubResource("SpriteFrames_61yq2")
-animation = &"SpinningCoin"
-frame = 3
-frame_progress = 0.568802
-
-[node name="Coin2Coll" type="CollisionShape2D" parent="Coin2"]
-position = Vector2(1, 5)
-shape = SubResource("CircleShape2D_modo2")
-
-[node name="Coin3" type="Area2D" parent="."]
-position = Vector2(-898, 333)
-
-[node name="Coin3Spr" type="AnimatedSprite2D" parent="Coin3"]
-position = Vector2(1, 0)
-scale = Vector2(1.20238, 1.16667)
-sprite_frames = SubResource("SpriteFrames_61yq2")
-animation = &"SpinningCoin"
-
-[node name="Coin3Coll" type="CollisionShape2D" parent="Coin3"]
-position = Vector2(0, -2)
-shape = SubResource("CircleShape2D_modo2")
-
-[node name="Coin4" type="Area2D" parent="."]
-position = Vector2(2618, 209)
-
-[node name="Coin4Spr" type="AnimatedSprite2D" parent="Coin4"]
-position = Vector2(-0.999878, -5.99999)
-scale = Vector2(1.2381, 1.19643)
-sprite_frames = SubResource("SpriteFrames_61yq2")
-animation = &"SpinningCoin"
-
-[node name="Coin4Coll" type="CollisionShape2D" parent="Coin4"]
-position = Vector2(-1, -6)
-shape = SubResource("CircleShape2D_modo2")
-
-[node name="Coin5" type="Area2D" parent="."]
-position = Vector2(2186, -692)
-
-[node name="Coin5Spr" type="AnimatedSprite2D" parent="Coin5"]
-position = Vector2(-1, -8)
-scale = Vector2(1.29762, 1.25)
-sprite_frames = SubResource("SpriteFrames_61yq2")
-animation = &"SpinningCoin"
-
-[node name="Coin5Coll" type="CollisionShape2D" parent="Coin5"]
-position = Vector2(-4, -7)
-shape = SubResource("CircleShape2D_modo2")
-
-[node name="Coin6" type="Area2D" parent="."]
-position = Vector2(-2122, -1720)
-
-[node name="Coin6Spr" type="AnimatedSprite2D" parent="Coin6"]
-position = Vector2(2.99996, -1.00002)
-scale = Vector2(1.27381, 1.17857)
-sprite_frames = SubResource("SpriteFrames_61yq2")
-animation = &"SpinningCoin"
-
-[node name="Coin6Coll" type="CollisionShape2D" parent="Coin6"]
-position = Vector2(3, -1)
-shape = SubResource("CircleShape2D_modo2")
-
 [node name="Player1" parent="." instance=ExtResource("18_lfuly")]
 position = Vector2(-1699, -2432)
 
 [node name="Player2" parent="." instance=ExtResource("18_np6vn")]
 position = Vector2(2794, -2432)
 
+[node name="Coin" parent="." instance=ExtResource("13_cux4k")]
+position = Vector2(1723, -1854)
+
+[node name="Coin1" parent="." instance=ExtResource("13_cux4k")]
+position = Vector2(3018, -1853)
+
+[node name="Coin2" parent="." instance=ExtResource("13_cux4k")]
+position = Vector2(2192, -709)
+
+[node name="Coin3" parent="." instance=ExtResource("13_cux4k")]
+position = Vector2(-1194, -1226)
+
+[node name="Coin4" parent="." instance=ExtResource("13_cux4k")]
+position = Vector2(-2131, -1764)
+
+[node name="Coin5" parent="." instance=ExtResource("13_cux4k")]
+position = Vector2(2619, 185)
+
+[node name="Coin6" parent="." instance=ExtResource("13_cux4k")]
+position = Vector2(-916, 299)
+
+[node name="Coin7" parent="." instance=ExtResource("13_cux4k")]
+position = Vector2(-175, -703)
+
+[node name="Coin8" parent="." instance=ExtResource("13_cux4k")]
+position = Vector2(2990, -1218)
+
+[node name="Coin9" parent="." instance=ExtResource("13_cux4k")]
+position = Vector2(-834, -1605)
+
+[node name="Layer2End" type="Node2D" parent="."]
+position = Vector2(-1645, 958)
+
 [connection signal="area_entered" from="Lever1" to="." method="_on_lever_1_area_entered"]
 [connection signal="body_entered" from="Lever1" to="." method="_on_lever_1_area_entered"]
 [connection signal="body_entered" from="Button1" to="." method="_on_button_1_body_entered"]
 [connection signal="body_exited" from="Button1" to="." method="_on_button_1_body_exited"]
+[connection signal="body_entered" from="Button2" to="." method="_on_button_2_body_entered"]
+[connection signal="body_exited" from="Button2" to="." method="_on_button_2_body_exited"]
 [connection signal="body_entered" from="Lava" to="." method="_on_lava_body_entered"]
 [connection signal="area_entered" from="Lever2" to="." method="_on_lever_2_area_entered"]
 [connection signal="body_entered" from="Lever2" to="." method="_on_lever_2_area_entered"]
-[connection signal="body_entered" from="Button2" to="." method="_on_button_2_body_entered"]
-[connection signal="body_exited" from="Button2" to="." method="_on_button_2_body_exited"]
