@@ -97,6 +97,12 @@ shape = SubResource("CircleShape2D_u1xsq")
 
 [node name="FloorCheck" type="RayCast2D" parent="."]
 position = Vector2(20, 0)
+collision_mask = 3
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
