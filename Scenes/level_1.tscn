@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://com41isoe8gcn"]
+[gd_scene load_steps=30 format=3 uid="uid://com41isoe8gcn"]
 
 [ext_resource type="Script" path="res://Scenes/level_1.gd" id="1_imnaf"]
 [ext_resource type="Texture2D" uid="uid://r5s7m33v4335" path="res://Art/kenney_platformer-pack-redux/Spritesheets/spritesheet_ground.png" id="4_voyyq"]
@@ -469,6 +469,9 @@ size = Vector2(93, 63)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pwnq8"]
 size = Vector2(518, 128)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7c4o1"]
+size = Vector2(512.5, 128)
+
 [node name="Node2D" type="Node2D"]
 position = Vector2(585, 630)
 script = ExtResource("1_imnaf")
@@ -548,7 +551,7 @@ frame = 1
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Button1"]
-position = Vector2(-4, 41)
+position = Vector2(-4, 15)
 shape = SubResource("CircleShape2D_eyel7")
 
 [node name="Layer3" type="StaticBody2D" parent="."]
@@ -732,16 +735,34 @@ position = Vector2(-999, -1799)
 [node name="Player1" parent="Cam" instance=ExtResource("14_5a570")]
 position = Vector2(3121, -1803)
 
+[node name="Layer4" type="StaticBody2D" parent="."]
+position = Vector2(-1684, 985)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Layer4"]
+position = Vector2(19.75, -25)
+shape = SubResource("RectangleShape2D_7c4o1")
+
+[node name="Layer4_b1" type="Sprite2D" parent="Layer4"]
+position = Vector2(-173, -25)
+texture = ExtResource("11_7ieb1")
+
+[node name="Layer4_b2" type="Sprite2D" parent="Layer4"]
+position = Vector2(-45, -25)
+texture = ExtResource("11_7ieb1")
+
+[node name="Layer4_b3" type="Sprite2D" parent="Layer4"]
+position = Vector2(83, -25)
+texture = ExtResource("11_7ieb1")
+
+[node name="Layer4_b4" type="Sprite2D" parent="Layer4"]
+position = Vector2(211.5, -25)
+scale = Vector2(1.00781, 1)
+texture = ExtResource("11_7ieb1")
+
 [connection signal="area_entered" from="Lever1" to="." method="_on_lever_1_area_entered"]
 [connection signal="body_entered" from="Lever1" to="." method="_on_lever_1_area_entered"]
-[connection signal="area_entered" from="Lever3" to="." method="_on_lever_3_area_entered"]
-[connection signal="area_entered" from="Lever3" to="." method="_on_lever_1_area_entered"]
-[connection signal="area_exited" from="Lever3" to="." method="_on_lever_3_area_exited"]
-[connection signal="body_entered" from="Lever3" to="." method="_on_lever_1_area_entered"]
-[connection signal="area_entered" from="Lever4" to="." method="_on_lever_1_area_entered"]
-[connection signal="area_entered" from="Lever4" to="." method="_on_lever_4_area_entered"]
-[connection signal="area_exited" from="Lever4" to="." method="_on_lever_4_area_exited"]
-[connection signal="body_entered" from="Lever4" to="." method="_on_lever_1_area_entered"]
+[connection signal="body_entered" from="Lever3" to="." method="_on_lever_3_area_entered"]
+[connection signal="body_entered" from="Lever4" to="." method="_on_lever_4_area_entered"]
 [connection signal="body_entered" from="Button1" to="." method="_on_button_1_body_entered"]
 [connection signal="body_exited" from="Button1" to="." method="_on_button_1_body_exited"]
 [connection signal="body_entered" from="Button2" to="." method="_on_button_2_body_entered"]
