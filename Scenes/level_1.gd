@@ -52,29 +52,58 @@ func layer1():
 func _on_button_1_body_entered(body):
 	$Button1/Button1.play("ButtonOn")
 	button1on = true
-	create_tween().tween_property($Layer3, "global_position", $Layer3.global_position + Vector2(200, 0), 1)
+	create_tween().tween_property($Layer3, "global_position", $Layer3.global_position - Vector2(600, 0), 1)
 
 
 func _on_button_2_body_entered(body):
 	$Button2/Button2.play("ButtonOn")
 	button2on = true
-	create_tween().tween_property($Layer2, "global_position", $Layer2End.global_position, 1)
+	create_tween().tween_property($Layer2, "global_position", $Layer2.global_position + Vector2(-512, 1024), 1)
 	
 
 
 func _on_button_1_body_exited(body):
 	$Button1/Button1.play("ButtonOff")
 	button1on = false
-	create_tween().tween_property($Layer3, "global_position", $Layer3.global_position - Vector2(200, 0), 1)
+	create_tween().tween_property($Layer3, "global_position", $Layer3.global_position + Vector2(600, 0), 1)
 
 
 func _on_button_2_body_exited(body):
 	$Button2/Button2.play("ButtonOff")
 	button2on = false
-	create_tween().tween_property($Layer2, "position", $Layer2End.position, 1)
+	create_tween().tween_property($Layer2, "global_position", $Layer2.global_position - Vector2(-512, 1024), 1)
 
 
 
 
 func _on_lava_body_entered(body):
 	game_over()
+
+
+func _on_lever_3_area_entered(area):
+	if lever1Pulled == true:
+		$Lever1/Lever1.play("LeverTurnOff")
+		lever1Pulled = false
+	else:
+		$Lever1/Lever1.play("LeverTurnOn")
+	#set the bool
+	#layer1 check
+		lever1Pulled = true
+	layer1()
+
+
+
+
+func _on_lever_3_area_exited(area):
+	pass # Replace with function body.
+
+
+
+
+func _on_lever_4_area_entered(area):
+	pass # Replace with function body.
+
+
+
+func _on_lever_4_area_exited(area):
+	pass # Replace with function body.
