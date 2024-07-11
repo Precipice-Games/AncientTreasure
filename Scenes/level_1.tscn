@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cnhijvp0qixbh"]
+[gd_scene load_steps=31 format=3 uid="uid://com41isoe8gcn"]
 
 [ext_resource type="Script" path="res://Scenes/level_1.gd" id="1_imnaf"]
 [ext_resource type="Texture2D" uid="uid://r5s7m33v4335" path="res://Art/kenney_platformer-pack-redux/Spritesheets/spritesheet_ground.png" id="4_voyyq"]
@@ -9,10 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://djtncksl4g0ss" path="res://Art/kenney_abstract-platformer/PNG/Other/buttonRed_pressed.png" id="9_6h5mx"]
 [ext_resource type="Texture2D" uid="uid://vtkrn02ikd3j" path="res://Art/kenney_abstract-platformer/PNG/Other/buttonRed.png" id="10_1t8io"]
 [ext_resource type="Texture2D" uid="uid://csg6p6wy4gngu" path="res://Art/kenney_platformer-pack-redux/PNG/Ground/Sand/sandMid.png" id="11_7ieb1"]
+[ext_resource type="Texture2D" uid="uid://djwwxpal2udtc" path="res://Art/kenney_platformer-pack-redux/PNG/Tiles/lavaTop_high.png" id="11_7308t"]
 [ext_resource type="Script" path="res://Scenes/Lava.gd" id="11_eowgx"]
 [ext_resource type="Texture2D" uid="uid://dwajrfdc8rhyp" path="res://Art/kenney_platformer-pack-redux/PNG/Ground/Grass/grassMid.png" id="13_2e0v5"]
-[ext_resource type="PackedScene" path="res://Scenes/camera.tscn" id="13_aghcm"]
-[ext_resource type="PackedScene" path="res://Scenes/coin.tscn" id="13_cux4k"]
+[ext_resource type="PackedScene" uid="uid://ernfnld2kdbc" path="res://Scenes/camera.tscn" id="13_aghcm"]
+[ext_resource type="PackedScene" uid="uid://u82vhebonun" path="res://Scenes/coin.tscn" id="13_cux4k"]
 [ext_resource type="PackedScene" uid="uid://bo0ttthw8puw4" path="res://Scenes/player_1.tscn" id="14_5a570"]
 [ext_resource type="PackedScene" uid="uid://cqr7mrda7e8d7" path="res://Scenes/player_2.tscn" id="15_he5mu"]
 
@@ -469,6 +470,9 @@ size = Vector2(93, 63)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pwnq8"]
 size = Vector2(518, 128)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7c4o1"]
+size = Vector2(512.5, 128)
+
 [node name="Node2D" type="Node2D"]
 position = Vector2(585, 630)
 script = ExtResource("1_imnaf")
@@ -629,10 +633,12 @@ shape = SubResource("RectangleShape2D_ojvyp")
 script = ExtResource("11_eowgx")
 
 [node name="Lava" type="Sprite2D" parent="Lava"]
-position = Vector2(512, -395)
-scale = Vector2(4, 4.375)
+position = Vector2(512, -393.5)
+scale = Vector2(2, 2.14844)
+texture = ExtResource("11_7308t")
 
 [node name="LavaColl" type="CollisionShape2D" parent="Lava"]
+visible = false
 position = Vector2(512.5, -395)
 shape = SubResource("RectangleShape2D_u4x0c")
 
@@ -732,16 +738,42 @@ position = Vector2(3349, -1816)
 [node name="Player2" parent="Cam" instance=ExtResource("15_he5mu")]
 position = Vector2(-1118, -1790)
 
+[node name="Layer4" type="StaticBody2D" parent="."]
+position = Vector2(-1684, 985)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Layer4"]
+position = Vector2(19.75, -25)
+shape = SubResource("RectangleShape2D_7c4o1")
+
+[node name="Layer4_b1" type="Sprite2D" parent="Layer4"]
+position = Vector2(-173, -25)
+texture = ExtResource("11_7ieb1")
+
+[node name="Layer4_b2" type="Sprite2D" parent="Layer4"]
+position = Vector2(-45, -25)
+texture = ExtResource("11_7ieb1")
+
+[node name="Layer4_b3" type="Sprite2D" parent="Layer4"]
+position = Vector2(83, -25)
+texture = ExtResource("11_7ieb1")
+
+[node name="Layer4_b4" type="Sprite2D" parent="Layer4"]
+position = Vector2(211.5, -25)
+scale = Vector2(1.00781, 1)
+texture = ExtResource("11_7ieb1")
+
 [connection signal="area_entered" from="Lever1" to="." method="_on_lever_1_area_entered"]
 [connection signal="body_entered" from="Lever1" to="." method="_on_lever_1_area_entered"]
 [connection signal="area_entered" from="Lever3" to="." method="_on_lever_1_area_entered"]
 [connection signal="area_entered" from="Lever3" to="." method="_on_lever_3_area_entered"]
 [connection signal="area_exited" from="Lever3" to="." method="_on_lever_3_area_exited"]
 [connection signal="body_entered" from="Lever3" to="." method="_on_lever_1_area_entered"]
+[connection signal="body_entered" from="Lever3" to="." method="_on_lever_3_area_entered"]
 [connection signal="area_entered" from="Lever4" to="." method="_on_lever_1_area_entered"]
 [connection signal="area_entered" from="Lever4" to="." method="_on_lever_4_area_entered"]
 [connection signal="area_exited" from="Lever4" to="." method="_on_lever_4_area_exited"]
 [connection signal="body_entered" from="Lever4" to="." method="_on_lever_1_area_entered"]
+[connection signal="body_entered" from="Lever4" to="." method="_on_lever_4_area_entered"]
 [connection signal="body_entered" from="Button1" to="." method="_on_button_1_body_entered"]
 [connection signal="body_exited" from="Button1" to="." method="_on_button_1_body_exited"]
 [connection signal="body_entered" from="Button2" to="." method="_on_button_2_body_entered"]
