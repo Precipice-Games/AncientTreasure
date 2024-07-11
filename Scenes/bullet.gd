@@ -17,3 +17,11 @@ func initialize(player_direction):
 		direction = -1
 
 	velocity = velocity * direction * speed
+
+func check_mob():
+	if $CollisionShape2D.is_colliding():
+		var collider = $CollisionShape2D.get_collider()
+		if collider.is_in_group("mobs"):
+			collider.take_damage(30)
+			$AttackTimer.start()
+			print("attack")

@@ -87,7 +87,7 @@ func jump_finished():
 	else:
 		animatedSprite.play("Fall")
 
-func take_damage(impact):
+func old_take_damage(impact):
 	impact = clamp(impact, 0.0, 1.0)
 	var damage = HP_MAX * impact
 	var prev_hp = hp
@@ -98,3 +98,17 @@ func take_damage(impact):
 		emit_signal("damaged", damage)
 	if hp <= 0.0:
 		emit_signal("killed")
+
+
+func take_damage(amount):
+	hp-=amount
+	if hp<0:
+		print("dead")
+
+func check_mob():
+	if $Sword.is_colliding():
+		var collider = $Sword.get_collider()
+		if collider.is_in_group("mobs"):
+			collider.take_damage(30)
+			$AttackTimer.start()
+			print("attack")

@@ -9,6 +9,13 @@ var player_detected:bool = false
 var can_jump:bool = true
 var can_attack:bool = true
 
+signal damaged(by)
+signal killed()
+
+const HP_MAX = 150.0
+var hp = HP_MAX
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -43,12 +50,9 @@ func check_player():
 	if $FloorCheck.is_colliding():
 		var collider = $FloorCheck.get_collider()
 		if collider.is_in_group("players") and can_attack:
-			print("attack")
 			collider.take_damage(25)
 			$AttackTimer.start()
 			can_attack=false
-		else:
-			print("not ready")
 
 
 func _on_player_detection_body_entered(body):
@@ -60,3 +64,9 @@ func _on_player_detection_body_exited(body):
 
 func _on_attack_timer_timeout():
 	can_attack=true
+
+
+func take_damage(amount):
+	hp-=amount
+	if hp<0:
+		print("dead")

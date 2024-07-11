@@ -1,11 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxwgpa8364m3a"]
+[gd_scene load_steps=4 format=3 uid="uid://cxwgpa8364m3a"]
 
 [ext_resource type="PackedScene" uid="uid://celo1wf70ips3" path="res://mob.tscn" id="1_w4nc0"]
 [ext_resource type="PackedScene" uid="uid://bo0ttthw8puw4" path="res://Scenes/player_1.tscn" id="1_ysv4u"]
-[ext_resource type="PackedScene" uid="uid://cqr7mrda7e8d7" path="res://Scenes/player_2.tscn" id="2_ky6w5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nukes"]
-size = Vector2(1496, 182)
+size = Vector2(3150, 182)
 
 [node name="test" type="Node"]
 
@@ -13,14 +12,10 @@ size = Vector2(1496, 182)
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(114, 357)
+position = Vector2(101, 357)
 shape = SubResource("RectangleShape2D_nukes")
-
-[node name="Player2" parent="." instance=ExtResource("2_ky6w5")]
-position = Vector2(430, 85)
 
 [node name="Mob" parent="." instance=ExtResource("1_w4nc0")]
 position = Vector2(23, 170)
 
 [node name="Player1" parent="." instance=ExtResource("1_ysv4u")]
-position = Vector2(204, 84)
