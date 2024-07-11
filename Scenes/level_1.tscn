@@ -634,6 +634,7 @@ shape = SubResource("RectangleShape2D_ojvyp")
 script = ExtResource("11_eowgx")
 
 [node name="Lava" type="Sprite2D" parent="Lava"]
+texture_repeat = 2
 position = Vector2(512, -393.5)
 scale = Vector2(2, 2.14844)
 texture = ExtResource("11_7308t")
