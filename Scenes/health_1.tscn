@@ -27,22 +27,22 @@ animations = [{
 "texture": ExtResource("3_a7mtm")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"full",
 "speed": 5.0
 }]
 
 [node name="Health1" type="Node2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Heart1" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hw01y")
-animation = &"idle"
+animation = &"full"
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+[node name="Heart2" type="AnimatedSprite2D" parent="."]
 position = Vector2(17, 0)
 sprite_frames = SubResource("SpriteFrames_hw01y")
-animation = &"idle"
+animation = &"full"
 
-[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+[node name="Heart3" type="AnimatedSprite2D" parent="."]
 position = Vector2(35, 0)
 sprite_frames = SubResource("SpriteFrames_hw01y")
-animation = &"idle"
+animation = &"full"
