@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bo0ttthw8puw4"]
+[gd_scene load_steps=13 format=3 uid="uid://bo0ttthw8puw4"]
 
 [ext_resource type="Script" path="res://Scenes/player.gd" id="1_ko5va"]
 [ext_resource type="Texture2D" uid="uid://b1aevlmt1m4xu" path="res://Art/kenney_platformer-pack-redux/PNG/Players/128x256/Pink/alienPink_swim1.png" id="3_2a515"]
@@ -79,6 +79,9 @@ _data = {
 "hit": SubResource("Animation_1wc1h")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ppcf"]
+size = Vector2(23, 79)
+
 [node name="Player1" type="CharacterBody2D" groups=["players"]]
 collision_layer = 2
 collision_mask = 5
@@ -93,7 +96,6 @@ position = Vector2(-3.5, 53)
 shape = SubResource("RectangleShape2D_m8k62")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-visible = false
 
 [node name="Sword" type="Node2D" parent="."]
 
@@ -109,3 +111,13 @@ libraries = {
 "": SubResource("AnimationLibrary_reukh")
 }
 autoplay = "hit"
+
+[node name="Area2D" type="Area2D" parent="Sword/Sprite2D"]
+position = Vector2(-34.6154, -67.6923)
+scale = Vector2(0.769231, 0.769231)
+
+[node name="HitBox" type="CollisionShape2D" parent="Sword/Sprite2D/Area2D"]
+position = Vector2(46, 54)
+shape = SubResource("RectangleShape2D_5ppcf")
+
+[connection signal="body_entered" from="Sword/Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]

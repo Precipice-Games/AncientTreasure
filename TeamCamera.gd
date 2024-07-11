@@ -17,6 +17,6 @@ func follow_players():
 	var spread = abs(player1.global_position - player2.global_position)
 	var xscale:float = get_viewport_rect().size.x / spread.x
 	var yscale:float = get_viewport_rect().size.y / spread.y
-	var scale = 0.67 * min(xscale, yscale, 2)
+	var scale = 0.67 * min(xscale, yscale, 1.5)
 	zoom = Vector2(scale, scale)
 	

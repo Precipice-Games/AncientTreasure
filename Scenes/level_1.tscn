@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://com41isoe8gcn"]
+[gd_scene load_steps=29 format=3 uid="uid://cnhijvp0qixbh"]
 
 [ext_resource type="Script" path="res://Scenes/level_1.gd" id="1_imnaf"]
 [ext_resource type="Texture2D" uid="uid://r5s7m33v4335" path="res://Art/kenney_platformer-pack-redux/Spritesheets/spritesheet_ground.png" id="4_voyyq"]
@@ -11,8 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://csg6p6wy4gngu" path="res://Art/kenney_platformer-pack-redux/PNG/Ground/Sand/sandMid.png" id="11_7ieb1"]
 [ext_resource type="Script" path="res://Scenes/Lava.gd" id="11_eowgx"]
 [ext_resource type="Texture2D" uid="uid://dwajrfdc8rhyp" path="res://Art/kenney_platformer-pack-redux/PNG/Ground/Grass/grassMid.png" id="13_2e0v5"]
-[ext_resource type="PackedScene" uid="uid://ernfnld2kdbc" path="res://Scenes/camera.tscn" id="13_aghcm"]
-[ext_resource type="PackedScene" uid="uid://u82vhebonun" path="res://Scenes/coin.tscn" id="13_cux4k"]
+[ext_resource type="PackedScene" path="res://Scenes/camera.tscn" id="13_aghcm"]
+[ext_resource type="PackedScene" path="res://Scenes/coin.tscn" id="13_cux4k"]
 [ext_resource type="PackedScene" uid="uid://bo0ttthw8puw4" path="res://Scenes/player_1.tscn" id="14_5a570"]
 [ext_resource type="PackedScene" uid="uid://cqr7mrda7e8d7" path="res://Scenes/player_2.tscn" id="15_he5mu"]
 
@@ -734,8 +734,8 @@ position = Vector2(3121, -1803)
 
 [connection signal="area_entered" from="Lever1" to="." method="_on_lever_1_area_entered"]
 [connection signal="body_entered" from="Lever1" to="." method="_on_lever_1_area_entered"]
-[connection signal="area_entered" from="Lever3" to="." method="_on_lever_3_area_entered"]
 [connection signal="area_entered" from="Lever3" to="." method="_on_lever_1_area_entered"]
+[connection signal="area_entered" from="Lever3" to="." method="_on_lever_3_area_entered"]
 [connection signal="area_exited" from="Lever3" to="." method="_on_lever_3_area_exited"]
 [connection signal="body_entered" from="Lever3" to="." method="_on_lever_1_area_entered"]
 [connection signal="area_entered" from="Lever4" to="." method="_on_lever_1_area_entered"]

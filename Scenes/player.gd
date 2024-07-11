@@ -4,8 +4,8 @@ signal landed
 
 var pickups = 0
 
-@export var walk_speed = 700.0
-@export var jump_speed = -700.0
+@export var walk_speed = 800.0
+@export var jump_speed = -900.0
 
 @onready var animatedSprite = $AnimatedSprite2D
 
@@ -53,6 +53,7 @@ func _physics_process(delta):
 		$Sword.scale.x = -1
 		#$Sword/Sprite2D.position = Vector2(47,90)
 	move_and_slide()
+	$Sword/Sprite2D/Area2D/HitBox.disabled = true
 
 func ground_check(delta):
 	var was_grounded = grounded
@@ -87,28 +88,16 @@ func jump_finished():
 	else:
 		animatedSprite.play("Fall")
 
-func old_take_damage(impact):
-	impact = clamp(impact, 0.0, 1.0)
-	var damage = HP_MAX * impact
-	var prev_hp = hp
-	hp -= damage
-	hp = clamp(hp, 0, HP_MAX)
-	
-	if prev_hp != hp:
-		emit_signal("damaged", damage)
-	if hp <= 0.0:
-		emit_signal("killed")
-
 
 func take_damage(amount):
 	hp-=amount
 	if hp<0:
 		print("dead")
 
-func check_mob():
-	if $Sword.is_colliding():
-		var collider = $Sword.get_collider()
-		if collider.is_in_group("mobs"):
-			collider.take_damage(30)
-			$AttackTimer.start()
-			print("attack")
+
+func _on_area_2d_body_entered(body):
+	$Sword/Sprite2D/Area2D/HitBox.disabled = true
+	if body.is_in_group("mobs"):
+		body.take_damage(30)
+		print("attack_sword")
+
