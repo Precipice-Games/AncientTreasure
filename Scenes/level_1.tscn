@@ -714,6 +714,20 @@ texture = ExtResource("13_2e0v5")
 visibility_layer = 6
 shape = SubResource("RectangleShape2D_pwnq8")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 657.0
+offset_top = -909.0
+offset_right = 1715.0
+offset_bottom = 407.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Coin" parent="." instance=ExtResource("13_cux4k")]
 position = Vector2(1723, -1854)
 
@@ -743,6 +757,9 @@ position = Vector2(2990, -1218)
 
 [node name="Coin9" parent="." instance=ExtResource("13_cux4k")]
 position = Vector2(-834, -1605)
+
+[node name="Coin10" parent="." instance=ExtResource("13_cux4k")]
+position = Vector2(1723, -1854)
 
 [node name="Cam" type="Node" parent="."]
 
@@ -839,3 +856,13 @@ shape = SubResource("RectangleShape2D_gr256")
 [connection signal="area_entered" from="Lever2" to="." method="_on_lever_2_area_entered"]
 [connection signal="body_entered" from="Lever2" to="." method="_on_lever_2_area_entered"]
 [connection signal="body_entered" from="Bottom" to="Bottom" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin1" to="." method="_on_coin_1_body_entered"]
+[connection signal="body_entered" from="Coin2" to="." method="_on_coin_1_body_entered"]
+[connection signal="body_entered" from="Coin3" to="." method="_on_coin_1_body_entered"]
+[connection signal="body_entered" from="Coin4" to="." method="_on_coin_1_body_entered"]
+[connection signal="body_entered" from="Coin5" to="." method="_on_coin_1_body_entered"]
+[connection signal="body_entered" from="Coin6" to="." method="_on_coin_1_body_entered"]
+[connection signal="body_entered" from="Coin7" to="." method="_on_coin_1_body_entered"]
+[connection signal="body_entered" from="Coin8" to="." method="_on_coin_1_body_entered"]
+[connection signal="body_entered" from="Coin9" to="." method="_on_coin_1_body_entered"]
+[connection signal="body_entered" from="Coin10" to="." method="_on_coin_1_body_entered"]
