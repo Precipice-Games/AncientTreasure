@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bsv20cedy3nm7"]
+[gd_scene load_steps=32 format=3 uid="uid://bsv20cedy3nm7"]
 
 [ext_resource type="PackedScene" uid="uid://byahlv8nshfoj" path="res://Scenes/tiles.tscn" id="1_net83"]
 [ext_resource type="Script" path="res://Scenes/level_2.gd" id="1_rbfd0"]
@@ -133,6 +133,9 @@ size = Vector2(271, 4400)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1aola"]
 size = Vector2(850, 88.4375)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvuyi"]
+size = Vector2(3569, 634.5)
+
 [node name="Node2D" type="Node2D"]
 position = Vector2(585, 630)
 script = ExtResource("1_rbfd0")
@@ -247,7 +250,6 @@ position = Vector2(278, 3)
 texture = ExtResource("9_hib0r")
 
 [node name="Lava1" type="Area2D" parent="."]
-visible = false
 position = Vector2(-2034, -174)
 
 [node name="LavaColl" type="CollisionShape2D" parent="Lava1"]
@@ -542,22 +544,22 @@ position = Vector2(3762, 238)
 texture = ExtResource("8_et3hr")
 
 [node name="Lava4" type="Area2D" parent="."]
-position = Vector2(-499, -175)
+position = Vector2(1335, 74)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lava4"]
-position = Vector2(1842, 237)
+position = Vector2(9, -10)
 shape = SubResource("RectangleShape2D_1wnf3")
 
 [node name="Lava2" type="Sprite2D" parent="Lava4"]
-position = Vector2(1714, 238)
+position = Vector2(-119, -10)
 texture = ExtResource("8_et3hr")
 
 [node name="Lava3" type="Sprite2D" parent="Lava4"]
-position = Vector2(1842, 238)
+position = Vector2(9, -10)
 texture = ExtResource("8_et3hr")
 
 [node name="Lava4" type="Sprite2D" parent="Lava4"]
-position = Vector2(1970, 238)
+position = Vector2(137, -10)
 texture = ExtResource("8_et3hr")
 
 [node name="Spring" parent="." instance=ExtResource("9_4vdo5")]
@@ -686,6 +688,16 @@ position = Vector2(3292, -210)
 [node name="Coin23" parent="." instance=ExtResource("15_28y3o")]
 position = Vector2(767, -2243)
 
+[node name="Node" type="Node2D" parent="."]
+position = Vector2(2314, -1400)
+
+[node name="TeamSwitch" type="Area2D" parent="."]
+position = Vector2(-13, 774)
+
+[node name="TeamSwitchColl" type="CollisionShape2D" parent="TeamSwitch"]
+position = Vector2(11, -191.75)
+shape = SubResource("RectangleShape2D_wvuyi")
+
 [connection signal="body_entered" from="Lever1" to="." method="_on_lever_1_body_entered"]
 [connection signal="body_entered" from="MovingPlat/Button1" to="." method="_on_button_1_body_entered"]
 [connection signal="body_exited" from="MovingPlat/Button1" to="." method="_on_button_1_body_exited"]
@@ -695,3 +707,4 @@ position = Vector2(767, -2243)
 [connection signal="body_entered" from="Lava2" to="." method="_on_lava_body_entered"]
 [connection signal="body_entered" from="Lava3" to="." method="_on_lava_body_entered"]
 [connection signal="body_entered" from="Lava4" to="." method="_on_lava_body_entered"]
+[connection signal="body_entered" from="TeamSwitch" to="." method="_on_team_switch_body_entered"]

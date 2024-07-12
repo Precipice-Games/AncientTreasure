@@ -28,18 +28,18 @@ func _on_lava_body_entered(body):
 func _on_lever_1_body_entered(body):
 	$Lever1/Lever1.play("LeverTurnOn")
 	lever1Pulled = true
-	create_tween().tween_property($Lava4, "global_position", Vector2(3306, -1500), 1)
+	create_tween().tween_property($Lava4, "global_position", $Lava4.global_position + Vector2(980, -1450), 1)
 	
 
 func _on_button_1_body_entered(body):
 	button1 = true
-	$button1.play("ButtonOn")
+	$Button1/Button1.play("ButtonOn")
 	movePlat()
 
 
 func _on_button_2_body_entered(body):
 	button2 = true
-	$button2.play("ButtonOn")
+	$Button2/Button2.play("ButtonOn")
 	movePlat()
 
 func movePlat():
@@ -56,3 +56,7 @@ func _on_button_2_body_exited(body):
 	button2 = false
 	$button2.play("ButtonOff")
 	create_tween().tween_property($MovingPlat, "global_position", Vector2(2600, 60), 1)
+
+
+func _on_team_switch_body_entered(body):
+	pass
