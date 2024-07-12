@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://rekqvllaggrk"]
+
+[ext_resource type="Script" path="res://spring.gd" id="1_3p3s7"]
+[ext_resource type="Texture2D" uid="uid://cwtdnpqtimqq2" path="res://Art/kenney_platformer-pack-redux/PNG/Tiles/spring.png" id="1_p1q5r"]
+[ext_resource type="Texture2D" uid="uid://dte7343l7ypf8" path="res://Art/kenney_platformer-pack-redux/PNG/Tiles/sprung.png" id="2_g6evx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_blypb"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"SpringDown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_p1q5r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_g6evx")
+}],
+"loop": false,
+"name": &"SpringUp",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fblse"]
+size = Vector2(136, 89)
+
+[node name="Spring" type="Area2D"]
+position = Vector2(1, -19)
+collision_mask = 6
+script = ExtResource("1_3p3s7")
+
+[node name="SpringSpr" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_blypb")
+animation = &"SpringUp"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 30.5)
+shape = SubResource("RectangleShape2D_fblse")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

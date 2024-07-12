@@ -21,7 +21,7 @@ func _process(delta):
 	pass
 
 func game_over():
-	currency = 0
+	pass
 
 func _on_lever_1_area_entered(area):
 	if lever1Pulled == true:
@@ -80,7 +80,9 @@ func _on_button_2_body_exited(body):
 
 
 func _on_lava_body_entered(body):
-	game_over()
+	if body.is_in_group("player"):
+		body.die()
+		game_over()
 
 
 func layer4():
@@ -97,8 +99,6 @@ func _on_lever_3_area_entered(area):
 		lever3Pulled = false
 	else:
 		$Lever3/Lever3.play("LeverTurnOn")
-	#set the bool
-	#layer1 check
 		lever3Pulled = true
 	layer4()
 
@@ -109,8 +109,6 @@ func _on_lever_4_area_entered(area):
 		lever4Pulled = false
 	else:
 		$Lever4/Lever4.play("LeverTurnOn")
-	#set the bool
-	#layer1 check
 		lever4Pulled = true
 	layer4()
 
