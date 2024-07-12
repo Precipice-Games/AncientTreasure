@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://br8bq427ay245"]
+
+[ext_resource type="Script" path="res://Scenes/game_over.gd" id="1_k5vow"]
+[ext_resource type="FontFile" uid="uid://dyrljefvnufcy" path="res://Art/Anton_SC,Teko/Teko/Teko-VariableFont_wght.ttf" id="2_1xpnm"]
+[ext_resource type="FontFile" uid="uid://c378g3iwmyjoq" path="res://Art/Anton_SC,Teko/Anton_SC/AntonSC-Regular.ttf" id="3_arwjk"]
+
+[sub_resource type="Theme" id="Theme_agjwe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avmxn"]
+bg_color = Color(0.960784, 0.352941, 0.517647, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.854902, 0.172549, 0.403922, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_k5vow")
+level1_scene = "res://Scenes/level_1.tscn"
+
+[node name="GameOver" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -451.0
+offset_top = -299.0
+offset_right = 452.0
+offset_bottom = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_agjwe")
+theme_override_colors/font_outline_color = Color(0.956863, 0.352941, 0.517647, 1)
+theme_override_constants/outline_size = 17
+theme_override_fonts/font = ExtResource("2_1xpnm")
+theme_override_font_sizes/font_size = 300
+text = "Game Over!"
+
+[node name="PressHere" type="Button" parent="."]
+offset_left = 659.0
+offset_top = 688.0
+offset_right = 1261.0
+offset_bottom = 959.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_avmxn")
+
+[node name="Restart" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.0
+offset_top = 146.0
+offset_right = 255.0
+offset_bottom = 416.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/line_spacing = -32
+theme_override_fonts/font = ExtResource("3_arwjk")
+theme_override_font_sizes/font_size = 100
+text = "PRESS HERE 
+to restart"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[connection signal="pressed" from="PressHere" to="." method="_on_press_here_pressed"]

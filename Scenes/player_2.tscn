@@ -48,8 +48,8 @@ size = Vector2(101, 150)
 radius = 50.0
 height = 126.0
 
-[node name="Player2" type="CharacterBody2D" groups=["mobs", "players"]]
-collision_layer = 2
+[node name="Player2" type="CharacterBody2D" groups=["players"]]
+collision_layer = 16
 collision_mask = 5
 script = ExtResource("1_1gj5a")
 

@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://c30c2pnfj8o0u"]
+
+[ext_resource type="Script" path="res://Scenes/health_1.gd" id="1_q4e4j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_762ja"]
+bg_color = Color(0.760784, 0, 0, 1)
+border_width_left = 4
+border_width_top = 2
+border_width_right = 4
+border_width_bottom = 2
+border_color = Color(0.466667, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 1
+
+[node name="HUD" type="Control" groups=["HUD_1"]]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_q4e4j")
+
+[node name="Health" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 1721.0
+offset_top = 16.0
+offset_right = 1901.0
+offset_bottom = 43.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_762ja")
+max_value = 150.0
+value = 150.0
+show_percentage = false

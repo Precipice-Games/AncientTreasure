@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ng6wj0xijq7d"]
+
+[node name="Credits" type="CanvasLayer"]
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -430.0
+offset_right = 430.0
+offset_bottom = 971.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Idea by Sofia and Emmaleigh
+Level design by Emmaleigh
+Character's animation by Sofia
+Assets taken from Kenney"
+horizontal_alignment = 1
+vertical_alignment = 1

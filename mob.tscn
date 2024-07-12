@@ -65,7 +65,7 @@ radius = 107.042
 
 [node name="Mob" type="CharacterBody2D" groups=["mobs"]]
 collision_layer = 4
-collision_mask = 11
+collision_mask = 27
 script = ExtResource("1_5yaym")
 speed = 400
 
@@ -79,14 +79,14 @@ shape = SubResource("RectangleShape2D_nh7ut")
 
 [node name="PlayerDetection" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 2
+collision_mask = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
 shape = SubResource("CircleShape2D_u1xsq")
 
 [node name="FloorCheck" type="RayCast2D" parent="."]
 position = Vector2(20, 0)
-collision_mask = 3
+collision_mask = 19
 
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 2.0

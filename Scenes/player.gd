@@ -14,11 +14,15 @@ var pickups = 0
 var direction = 0
 var grounded = false
 
-signal damaged(by)
-signal killed()
+signal damaged(amount)
+signal killed() ##TODO use in our die func
 
 const HP_MAX = 150.0
 var hp = HP_MAX
+
+func _ready():
+	var hud = get_tree().get_first_node_in_group("HUD_1")
+	connect("damaged",hud._on_player_1_damaged) ##TODO the HUDS are not in the levels yet
 
 #Only runs when input happens
 func _input(event):
@@ -50,11 +54,11 @@ func _physics_process(delta):
 	if direction>0:
 		$Sword/Sprite2D.flip_h = false
 		$Sword.scale.x = 1
-		#$Sword/Sprite2D.position = Vector2(-47,90)
+
 	else:
 		$Sword/Sprite2D.flip_h = true
 		$Sword.scale.x = -1
-		#$Sword/Sprite2D.position = Vector2(47,90)
+
 	move_and_slide()
 
 func ground_check(delta):
@@ -93,8 +97,9 @@ func jump_finished():
 
 func take_damage(amount):
 	hp-=amount
+	damaged.emit(amount)
 	if hp<0:
-		print("dead")
+		queue_free()
 
 
 func _on_area_2d_body_entered(body):
@@ -102,3 +107,4 @@ func _on_area_2d_body_entered(body):
 		body.take_damage(30)
 		print("attack_sword")
 
+##TODO make die funciton die():
