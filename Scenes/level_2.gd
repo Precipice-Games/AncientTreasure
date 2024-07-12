@@ -63,3 +63,10 @@ func _on_button_2_body_exited(body):
 	create_tween().tween_property($MovingPlat, "global_position", Vector2(2600, 60), 1)
 
 
+
+
+func _on_final_fight_trig_body_entered(body):
+	$Cam/Player1.add_to_group("mobs")
+	$Cam/Player2.add_to_group("mobs")
+	$FinalFight.play()
+
