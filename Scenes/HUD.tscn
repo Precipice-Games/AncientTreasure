@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://Scenes/health_1.gd" id="1_q4e4j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_762ja"]
-bg_color = Color(0.760784, 0, 0, 1)
+bg_color = Color(0.984521, 0.653092, 0.804116, 1)
 border_width_left = 4
 border_width_top = 2
 border_width_right = 4
 border_width_bottom = 2
-border_color = Color(0.466667, 0, 0, 1)
+border_color = Color(0.952887, 0.378509, 0.599968, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3

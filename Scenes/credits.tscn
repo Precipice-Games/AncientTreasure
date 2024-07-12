@@ -18,9 +18,9 @@ theme_override_colors/font_outline_color = Color(0.956863, 0.352941, 0.517647, 1
 theme_override_constants/outline_size = 7
 theme_override_fonts/font = ExtResource("1_aoq58")
 theme_override_font_sizes/font_size = 120
-text = "Idea by Sofia and Emmaleigh
-Level design by Emmaleigh
-Character's animation by Sofia
-Assets taken from Kenney"
+text = "Ideation: Sofia and Emmaleigh
+Level Design: Emmaleigh
+Character Animation: Sofia
+Assets: Kenney"
 horizontal_alignment = 1
 vertical_alignment = 1

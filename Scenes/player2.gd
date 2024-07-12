@@ -22,9 +22,8 @@ const HP_MAX = 150.0
 var hp = HP_MAX
 
 func _ready():
-	pass
-	#var hud = get_tree().get_first_node_in_group("HUD_2")
-	#connect("damaged",hud._on_player_2_damaged)
+	var hud = get_tree().get_first_node_in_group("HUD_2")
+	connect("damaged",hud._on_player_2_damaged)
 
 #Only runs when input happens
 func _input(event):
@@ -92,6 +91,14 @@ func take_damage(amount):
 	hp-=amount
 	damaged.emit(amount)
 	if hp<0:
-		queue_free() ##TODO change way players die by either loading game over scene or locking controls
-		
+		die()
 
+func die():
+	var scene = get_tree().get_current_scene()
+	print(scene.name)
+	if scene.name == "level_1":
+		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
+	elif scene.name == "level_2":
+		get_tree().change_scene_to_file("res://Scenes/player_1_win.tscn")
+		$Music.stop()
+		$GameOver.play()

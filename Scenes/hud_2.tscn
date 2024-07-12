@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://Scenes/hud_2.gd" id="1_20ukd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ukq4o"]
-bg_color = Color(0.760784, 0, 0, 1)
+bg_color = Color(0.590499, 0.74415, 0.936552, 1)
 border_width_left = 4
 border_width_top = 2
 border_width_right = 4
 border_width_bottom = 2
-border_color = Color(0.468327, 6.43749e-07, 1.68458e-07, 1)
+border_color = Color(0.20402, 0.41957, 0.596248, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3

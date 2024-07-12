@@ -102,11 +102,13 @@ func take_damage(amount):
 
 func die():
 	var scene = get_tree().get_current_scene()
+	print(scene.name)
 	if scene.name == "level_1":
-		get_tree().call_deferred("change_scene_to_file", "res://Scenes/game_over.tscn")
+		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 	elif scene.name == "level_2":
-		get_tree().call_deferred("change_scene_to_file", "res://Scenes/player_2_win.tscn")
-	
+		get_tree().change_scene_to_file("res://Scenes/player_2_win.tscn")
+		$Music.stop()
+		$GameOver.play()
 	
 		# check current scene...
 		# if it's level 1 then change scene to gameover/ (both player lose)
