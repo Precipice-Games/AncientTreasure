@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var speed:int = 0
 var direction = 1
-@export var jump_speed = -600
+@export var jump_speed = -700
 @export var gravity:int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var player_detected:bool = false
@@ -12,7 +12,7 @@ var can_attack:bool = true
 signal damaged(by)
 signal killed()
 
-const HP_MAX = 150.0
+const HP_MAX = 100.0
 var hp = HP_MAX
 
 
@@ -50,7 +50,7 @@ func check_player():
 	if $FloorCheck.is_colliding():
 		var collider = $FloorCheck.get_collider()
 		if collider.is_in_group("players") and can_attack:
-			collider.take_damage(25)
+			collider.take_damage(30)
 			$AttackTimer.start()
 			can_attack=false
 

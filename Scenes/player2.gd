@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal landed
+
 var pickups = 0
 
 @export var walk_speed = 800.0
@@ -14,12 +15,15 @@ var pickups = 0
 var direction = 0
 var grounded = false
 
-signal damaged(by)
+signal damaged(amount)
 signal killed()
 
 const HP_MAX = 150.0
 var hp = HP_MAX
 
+func _ready():
+	var hud = get_tree().get_first_node_in_group("HUD_2")
+	connect("damaged",hud._on_player_2_damaged)
 
 #Only runs when input happens
 func _input(event):
@@ -85,7 +89,8 @@ func jump_finished():
 
 func take_damage(amount):
 	hp-=amount
+	damaged.emit(amount)
 	if hp<0:
-		print("dead")
+		queue_free() ##TODO change way players die by either loading game over scene or locking controls
 		
 
