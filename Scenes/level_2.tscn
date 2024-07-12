@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dsjdbywerktxb"]
+[gd_scene load_steps=31 format=3 uid="uid://bsv20cedy3nm7"]
 
 [ext_resource type="PackedScene" uid="uid://byahlv8nshfoj" path="res://Scenes/tiles.tscn" id="1_net83"]
 [ext_resource type="Script" path="res://Scenes/level_2.gd" id="1_rbfd0"]
@@ -9,9 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://djtncksl4g0ss" path="res://Art/kenney_abstract-platformer/PNG/Other/buttonRed_pressed.png" id="6_xnp21"]
 [ext_resource type="Texture2D" uid="uid://vtkrn02ikd3j" path="res://Art/kenney_abstract-platformer/PNG/Other/buttonRed.png" id="7_1akpo"]
 [ext_resource type="Texture2D" uid="uid://djwwxpal2udtc" path="res://Art/kenney_platformer-pack-redux/PNG/Tiles/lavaTop_high.png" id="8_et3hr"]
-[ext_resource type="PackedScene" path="res://spring.tscn" id="9_4vdo5"]
+[ext_resource type="PackedScene" uid="uid://rekqvllaggrk" path="res://spring.tscn" id="9_4vdo5"]
 [ext_resource type="Texture2D" uid="uid://bbvhsigenil0x" path="res://Art/kenney_platformer-pack-redux/PNG/Ground/Planet/planetMid.png" id="9_hib0r"]
-[ext_resource type="PackedScene" path="res://Scenes/camera.tscn" id="10_dghcb"]
+[ext_resource type="PackedScene" uid="uid://ernfnld2kdbc" path="res://Scenes/camera.tscn" id="10_dghcb"]
 [ext_resource type="PackedScene" uid="uid://bo0ttthw8puw4" path="res://Scenes/player_1.tscn" id="11_lyquc"]
 [ext_resource type="PackedScene" uid="uid://cqr7mrda7e8d7" path="res://Scenes/player_2.tscn" id="12_rsqbr"]
 [ext_resource type="PackedScene" uid="uid://u82vhebonun" path="res://Scenes/coin.tscn" id="15_28y3o"]
