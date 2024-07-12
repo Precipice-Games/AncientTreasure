@@ -5,7 +5,7 @@ signal landed
 var pickups = 0
 
 @export var walk_speed = 800.0
-@export var jump_speed = -900.0
+@export var jump_speed = -700.0
 
 @onready var animatedSprite = $AnimatedSprite2D
 
@@ -22,8 +22,9 @@ const HP_MAX = 150.0
 var hp = HP_MAX
 
 func _ready():
-	var hud = get_tree().get_first_node_in_group("HUD_2")
-	connect("damaged",hud._on_player_2_damaged)
+	pass
+	#var hud = get_tree().get_first_node_in_group("HUD_2")
+	#connect("damaged",hud._on_player_2_damaged)
 
 #Only runs when input happens
 func _input(event):

@@ -5,7 +5,7 @@ signal landed
 var pickups = 0
 
 @export var walk_speed = 800.0
-@export var jump_speed = -900.0
+@export var jump_speed = -700.0
 
 @onready var animatedSprite = $AnimatedSprite2D
 
@@ -15,7 +15,6 @@ var direction = 0
 var grounded = false
 
 signal damaged(amount)
-signal killed() ##TODO use in our die func
 
 const HP_MAX = 150.0
 var hp = HP_MAX
@@ -98,8 +97,21 @@ func jump_finished():
 func take_damage(amount):
 	hp-=amount
 	damaged.emit(amount)
-	if hp<0:
-		queue_free()
+	if hp<=0:
+		die()
+
+func die():
+	var scene = get_tree().get_current_scene()
+	if scene.name == "level_1":
+		get_tree().call_deferred("change_scene_to_file", "res://Scenes/game_over.tscn")
+	elif scene.name == "level_2":
+		get_tree().call_deferred("change_scene_to_file", "res://Scenes/player_2_win.tscn")
+	
+	
+		# check current scene...
+		# if it's level 1 then change scene to gameover/ (both player lose)
+		# if it's level 2 then check scene to player 2 wins scene
+		#queue_free()
 
 
 func _on_area_2d_body_entered(body):
@@ -107,4 +119,3 @@ func _on_area_2d_body_entered(body):
 		body.take_damage(30)
 		print("attack_sword")
 
-##TODO make die funciton die():
