@@ -104,10 +104,10 @@ func die():
 	print(scene.name)
 	if scene.name == "level_1":
 		scene.get_node("Music").stop()
-		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
+		get_tree().call_deferred("change_scene_to_file", "res://Scenes/game_over.tscn")
 	elif scene.name == "level_2":
 		scene.get_node("Music").stop()
-		get_tree().change_scene_to_file("res://Scenes/player_2_win.tscn")
+		get_tree().call_deferred("change_scene_to_file", "res://Scenes/player_2_win.tscn")
 	
 		# check current scene...
 		# if it's level 1 then change scene to gameover/ (both player lose)

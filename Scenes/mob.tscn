@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://celo1wf70ips3"]
 
-[ext_resource type="Script" path="res://mob.gd" id="1_5yaym"]
+[ext_resource type="Script" path="res://Scenes/mob.gd" id="1_5yaym"]
 [ext_resource type="Texture2D" uid="uid://bcmreemkoles2" path="res://Art/kenney_abstract-platformer/PNG/Players/Player Red/playerRed_stand.png" id="1_qpy40"]
 [ext_resource type="Texture2D" uid="uid://266qpq1n6ass" path="res://Art/kenney_abstract-platformer/PNG/Players/Player Red/playerRed_duck.png" id="5_il45y"]
 [ext_resource type="Texture2D" uid="uid://bfe4dikp458o6" path="res://Art/kenney_abstract-platformer/PNG/Players/Player Red/playerRed_dead.png" id="6_edkwj"]

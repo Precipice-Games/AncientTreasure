@@ -68,5 +68,6 @@ func movePlat():
 func _on_final_fight_trig_body_entered(body):
 	$Cam/Player1.add_to_group("mobs")
 	$Cam/Player2.add_to_group("mobs")
+	$Music.stop()
 	$FinalFight.play()
 

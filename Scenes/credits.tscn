@@ -42,7 +42,7 @@ corner_radius_bottom_left = 12
 
 [node name="Credits" type="CanvasLayer"]
 script = ExtResource("1_7be61")
-start_menu = "res://Main_Menu.gd"
+start_menu = "res://Scenes/start_menu.tscn"
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 5
