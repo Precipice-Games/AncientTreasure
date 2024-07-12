@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://br8bq427ay245"]
+[gd_scene load_steps=7 format=3 uid="uid://br8bq427ay245"]
 
 [ext_resource type="Script" path="res://Scenes/game_over.gd" id="1_k5vow"]
 [ext_resource type="FontFile" uid="uid://dyrljefvnufcy" path="res://Art/Anton_SC,Teko/Teko/Teko-VariableFont_wght.ttf" id="2_1xpnm"]
 [ext_resource type="FontFile" uid="uid://c378g3iwmyjoq" path="res://Art/Anton_SC,Teko/Anton_SC/AntonSC-Regular.ttf" id="3_arwjk"]
+[ext_resource type="AudioStream" uid="uid://cjdj2hrcqjm7u" path="res://Music/mixkit-arcade-retro-game-over-213.wav" id="4_qgcpu"]
 
 [sub_resource type="Theme" id="Theme_agjwe"]
 
@@ -69,5 +70,8 @@ to restart"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
+
+[node name="GameOver2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_qgcpu")
 
 [connection signal="pressed" from="PressHere" to="." method="_on_press_here_pressed"]

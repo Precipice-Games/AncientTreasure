@@ -1,0 +1,101 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfh0bkckywhjo"]
+
+[ext_resource type="FontFile" uid="uid://dyrljefvnufcy" path="res://Art/Anton_SC,Teko/Teko/Teko-VariableFont_wght.ttf" id="1_kqywt"]
+[ext_resource type="Script" path="res://backstory.gd" id="1_lkj58"]
+[ext_resource type="FontFile" uid="uid://b11b1munp5hbe" path="res://Art/Anton_SC/AntonSC-Regular.ttf" id="2_fu0di"]
+
+[sub_resource type="Theme" id="Theme_cmdtd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpsy7"]
+bg_color = Color(0.453093, 0.694944, 0.770721, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.199534, 0.388832, 0.453245, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fds8h"]
+bg_color = Color(0.996078, 0.282353, 0.513726, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.698039, 0.105882, 0.313726, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_csb2v"]
+bg_color = Color(0.996078, 0.282353, 0.513726, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.698039, 0.105882, 0.313726, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="Backstory" type="CanvasLayer"]
+script = ExtResource("1_lkj58")
+start_menu = "res://Main_Menu.gd"
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -842.0
+offset_top = -557.5
+offset_right = 842.0
+offset_bottom = 557.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_cmdtd")
+theme_override_colors/font_outline_color = Color(0.262745, 0.486275, 0.564706, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("1_kqywt")
+theme_override_font_sizes/font_size = 90
+text = "One day, aliens are flying around space and discover a planet known 
+for it's lost hidden treasure. All missions to find the treasure have been 
+unsuccessful, leaving all treasure for the brave aliens to find it. 
+Are you ready to face the challenge?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="."]
+offset_left = 35.0
+offset_top = 37.0
+offset_right = 339.0
+offset_bottom = 159.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_gpsy7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fds8h")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_csb2v")
+
+[node name="Back" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1077.0
+offset_top = -519.0
+offset_right = -465.0
+offset_bottom = -368.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_fu0di")
+theme_override_font_sizes/font_size = 100
+text = "Back"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

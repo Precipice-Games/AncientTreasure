@@ -1,8 +1,48 @@
-[gd_scene load_steps=2 format=3 uid="uid://ng6wj0xijq7d"]
+[gd_scene load_steps=7 format=3 uid="uid://ng6wj0xijq7d"]
 
+[ext_resource type="Script" path="res://Scenes/credits.gd" id="1_7be61"]
 [ext_resource type="FontFile" uid="uid://dyrljefvnufcy" path="res://Art/Anton_SC,Teko/Teko/Teko-VariableFont_wght.ttf" id="1_aoq58"]
+[ext_resource type="FontFile" uid="uid://b11b1munp5hbe" path="res://Art/Anton_SC/AntonSC-Regular.ttf" id="3_gjg30"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s52nu"]
+bg_color = Color(0.453093, 0.694944, 0.770721, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.199534, 0.388832, 0.453245, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4yys"]
+bg_color = Color(0.996078, 0.282353, 0.513726, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.698039, 0.105882, 0.313726, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6reb"]
+bg_color = Color(0.996078, 0.282353, 0.513726, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.698039, 0.105882, 0.313726, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [node name="Credits" type="CanvasLayer"]
+script = ExtResource("1_7be61")
+start_menu = "res://Main_Menu.gd"
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 5
@@ -24,3 +64,32 @@ Character Animation: Sofia
 Assets: Kenney"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="."]
+offset_left = 35.0
+offset_top = 37.0
+offset_right = 339.0
+offset_bottom = 159.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_s52nu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b4yys")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h6reb")
+
+[node name="Back" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1077.0
+offset_top = -519.0
+offset_right = -465.0
+offset_bottom = -368.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_gjg30")
+theme_override_font_sizes/font_size = 100
+text = "Back"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
