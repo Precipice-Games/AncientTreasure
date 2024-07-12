@@ -1,6 +1,7 @@
 extends Node2D
 
 var currency = 0
+
 @export var lever1Pulled:bool = false
 @export var lever2Pulled:bool = false
 
@@ -64,28 +65,26 @@ func _on_button_1_body_entered(body):
 func _on_button_2_body_entered(body):
 	$Button2/Button2.play("ButtonOn")
 	button2on = true
-	create_tween().tween_property($Layer2, "global_position", $Layer2.global_position + Vector2(-512, 1024), 1)
-	
-
+	#create_tween().tween_property($Layer2, "global_position", Vector2(-1484,975), 1)
+	create_tween().tween_property($Layer2, "position", Vector2(-1671,961), 1)
 
 func _on_button_1_body_exited(body):
 	$Button1/Button1.play("ButtonOff")
 	button1on = false
-	create_tween().tween_property($Layer3, "global_position", $Layer3.global_position + Vector2(700, 0), 1)
+	create_tween().tween_property($Layer3, "global_position", $Layer3.global_position + Vector2(600, 0), 1)
 
 
 func _on_button_2_body_exited(body):
 	$Button2/Button2.play("ButtonOff")
 	button2on = false
-	create_tween().tween_property($Layer2, "global_position", $Layer2.global_position - Vector2(-512, 1024), 1)
-
+	#create_tween().tween_property($Layer2, "global_position", Vector2(1112, -1024), 1)
+	create_tween().tween_property($Layer2, "position", Vector2(-1151, -64), 1)
 
 
 
 func _on_lava_body_entered(body):
-	if body.is_in_group("player"):
+	if body.is_in_group("players"):
 		body.die()
-		game_over()
 
 
 func layer4():

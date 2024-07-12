@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://br8bq427ay245"]
+[gd_scene load_steps=7 format=3 uid="uid://dblkexn4i66i"]
 
 [ext_resource type="Script" path="res://Scenes/game_over.gd" id="1_k5vow"]
 [ext_resource type="FontFile" uid="uid://dyrljefvnufcy" path="res://Art/Anton_SC,Teko/Teko/Teko-VariableFont_wght.ttf" id="2_1xpnm"]

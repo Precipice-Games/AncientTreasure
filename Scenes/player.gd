@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 signal landed
 
-var pickups = 0
+var coins:int = 0
 
 @export var walk_speed = 800.0
 @export var jump_speed = -700.0
@@ -15,13 +15,15 @@ var direction = 0
 var grounded = false
 
 signal damaged(amount)
+signal coin_collected(amount)
 
 const HP_MAX = 150.0
 var hp = HP_MAX
 
 func _ready():
 	var hud = get_tree().get_first_node_in_group("HUD_1")
-	connect("damaged",hud._on_player_1_damaged) ##TODO the HUDS are not in the levels yet
+	connect("damaged",hud._on_player_1_damaged)
+	connect("coin_collected",hud._on_player_collect)
 
 #Only runs when input happens
 func _input(event):
@@ -68,9 +70,6 @@ func ground_check(delta):
 	elif not was_grounded:
 		landed.emit()
 
-func add_pickup():
-	pickups = pickups + 1
-
 func move(dir):
 	direction = dir
 	if dir == 0:
@@ -104,16 +103,20 @@ func die():
 	var scene = get_tree().get_current_scene()
 	print(scene.name)
 	if scene.name == "level_1":
+		scene.get_node("Music").stop()
 		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 	elif scene.name == "level_2":
+		scene.get_node("Music").stop()
 		get_tree().change_scene_to_file("res://Scenes/player_2_win.tscn")
-		$Music.stop()
-		$GameOver.play()
 	
 		# check current scene...
 		# if it's level 1 then change scene to gameover/ (both player lose)
 		# if it's level 2 then check scene to player 2 wins scene
 		#queue_free()
+
+func collect_coin():
+	coins+=1
+	coin_collected.emit(coins)
 
 
 func _on_area_2d_body_entered(body):

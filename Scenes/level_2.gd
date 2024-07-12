@@ -49,18 +49,18 @@ func _on_button_2_body_entered(body):
 
 func movePlat():
 	if button1 and button2:
-		create_tween().tween_property($MovingPlat, "global_position", Vector2(5, 712), 1)
+		create_tween().tween_property($MovingPlat, "position", Vector2(1133, -918), 1)
 
-func _on_button_1_body_exited(body):
-	button1 = false
-	$MovingPlat/Button1/Button1.play("ButtonOff")
-	create_tween().tween_property($MovingPlat, "global_position", Vector2(2600, 60), 1)
-
-
-func _on_button_2_body_exited(body):
-	button2 = false
-	$MovingPlat/Button2/Button2.play("ButtonOff")
-	create_tween().tween_property($MovingPlat, "global_position", Vector2(2600, 60), 1)
+#func _on_button_1_body_exited(body):
+	#button1 = false
+	#$MovingPlat/Button1/Button1.play("ButtonOff")
+	#create_tween().tween_property($MovingPlat, "global_position", Vector2(2600, 60), 1)
+#
+#
+#func _on_button_2_body_exited(body):
+	#button2 = false
+	#$MovingPlat/Button2/Button2.play("ButtonOff")
+	#create_tween().tween_property($MovingPlat, "global_position", Vector2(2600, 60), 1)
 
 
 

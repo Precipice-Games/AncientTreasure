@@ -30,3 +30,13 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_762ja")
 max_value = 150.0
 value = 150.0
 show_percentage = false
+
+[node name="Coins" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1738.0
+offset_top = 54.0
+offset_right = 1877.0
+offset_bottom = 157.0
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1

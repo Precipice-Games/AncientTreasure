@@ -1,6 +1,7 @@
-[gd_scene load_steps=41 format=3 uid="uid://com41isoe8gcn"]
+[gd_scene load_steps=43 format=3 uid="uid://com41isoe8gcn"]
 
 [ext_resource type="Script" path="res://Scenes/level_1.gd" id="1_imnaf"]
+[ext_resource type="Texture2D" uid="uid://wpek2elfbwny" path="res://Art/Cartoony-Day-Sky-01.png" id="2_ivqsh"]
 [ext_resource type="Texture2D" uid="uid://r5s7m33v4335" path="res://Art/kenney_platformer-pack-redux/Spritesheets/spritesheet_ground.png" id="4_voyyq"]
 [ext_resource type="Script" path="res://Scenes/Lever.gd" id="5_fldpk"]
 [ext_resource type="Texture2D" uid="uid://ca6ohp4r7svr0" path="res://Art/kenney_platformer-pack-redux/PNG/Tiles/leverRight.png" id="6_b73gi"]
@@ -19,8 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://celo1wf70ips3" path="res://mob.tscn" id="17_po02m"]
 [ext_resource type="Script" path="res://Scenes/Bottom.gd" id="18_8on73"]
 [ext_resource type="PackedScene" uid="uid://rekqvllaggrk" path="res://spring.tscn" id="19_bk12g"]
-[ext_resource type="PackedScene" path="res://Scenes/HUD.tscn" id="20_qcvee"]
-[ext_resource type="PackedScene" path="res://Scenes/hud_2.tscn" id="21_7qrdy"]
+[ext_resource type="PackedScene" uid="uid://c30c2pnfj8o0u" path="res://Scenes/HUD.tscn" id="20_qcvee"]
+[ext_resource type="PackedScene" uid="uid://b5a4rc3031ke5" path="res://Scenes/hud_2.tscn" id="21_7qrdy"]
+[ext_resource type="AudioStream" uid="uid://derucjcjgpu6s" path="res://Music/mixkit-downtown-rags-65.mp3" id="23_y6coh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eoi8t"]
 texture = ExtResource("4_voyyq")
@@ -467,10 +469,10 @@ radius = 98.656
 size = Vector2(512, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qbru2"]
-size = Vector2(257, 275)
+size = Vector2(257, 212)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4x0c"]
-size = Vector2(512, 410)
+size = Vector2(512, 320)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e84aa"]
 size = Vector2(93, 63)
@@ -493,15 +495,20 @@ size = Vector2(6685.5, 351)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gr256"]
 size = Vector2(1013, 133)
 
-[node name="Node2D" type="Node2D"]
+[node name="level_1" type="Node2D"]
 position = Vector2(585, 630)
 script = ExtResource("1_imnaf")
+
+[node name="Cartoony-day-sky-01" type="Sprite2D" parent="."]
+position = Vector2(562, -891)
+scale = Vector2(8.21628, 13.9475)
+texture = ExtResource("2_ivqsh")
 
 [node name="Level1" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_884wr")
 rendering_quadrant_size = 128
 format = 2
-layer_0/tile_data = PackedInt32Array(-1179642, 0, 1, -1179641, 0, 1, -1179640, 0, 1, -1179639, 0, 1, -1179638, 0, 1, -1179637, 0, 1, -1179636, 0, 1, -1179635, 0, 1, -1179634, 0, 1, -1179633, 0, 1, -1179632, 0, 1, -1179631, 0, 1, -1179630, 0, 1, -1179629, 0, 1, -1179628, 0, 1, -1179627, 0, 1, -1179626, 0, 1, -1179625, 0, 1, -1179624, 0, 1, -1179623, 0, 1, -1179622, 0, 1, -1114131, 0, 1, -1114130, 0, 1, -1114129, 0, 1, -1114128, 0, 1, -1114127, 0, 1, -1114126, 0, 1, -1114125, 0, 1, -1114124, 0, 1, -1114123, 0, 1, -1114122, 0, 1, -1114121, 0, 1, -1114120, 0, 1, -1114119, 0, 1, -1114118, 0, 1, -1114117, 0, 1, -1114116, 0, 1, -1114115, 0, 1, -1114114, 0, 1, -1114113, 0, 1, -1179648, 0, 1, -1179647, 0, 1, -786424, 0, 8, -917494, 0, 8, -917491, 0, 8, -524289, 0, 8, -655364, 0, 8, -720903, 0, 8, -917517, 0, 8, -851978, 0, 8, -983024, 0, 8, -851949, 0, 8, -917481, 0, 8, -7, 262144, 9, -6, 262144, 9, -5, 262144, 9, -4, 262144, 9, -3, 262144, 9, -2, 262144, 9, -1, 262144, 9, -65528, 262144, 9, -65527, 262144, 9, -65526, 262144, 9, -65525, 262144, 9, -65524, 262144, 9, -65523, 262144, 9, -65522, 262144, 9, -65521, 262144, 9, -65520, 262144, 9, -65519, 262144, 9, -65512, 262144, 9, -65511, 262144, 9, -65510, 262144, 9, -131065, 262144, 12, -196602, 262144, 12, -262139, 262144, 12, -262142, 262144, 11, -196607, 262144, 11, -131072, 262144, 11, -65529, 327680, 2, -131066, 327680, 2, -196603, 327680, 2, -65536, 327680, 1, -131071, 327680, 1, -196606, 327680, 1, -65535, 327680, 8, -65534, 327680, 8, -65533, 327680, 8, -65532, 327680, 8, -65531, 327680, 8, -65530, 327680, 8, -131067, 327680, 8, -131068, 327680, 8, -131069, 327680, 8, -131070, 327680, 8, -65518, 262144, 9, 458748, 262144, 11, 393213, 262144, 11, 458749, 327680, 1, 327682, 262144, 12, 393218, 327680, 2, 393219, 262144, 12, -18, 262144, 9, -17, 262144, 9, -16, 262144, 9, -15, 262144, 9, -14, 262144, 9, -13, 262144, 9, -12, 262144, 9, -19, 262144, 9, 65558, 327680, 0, 131092, 327680, 0, 196626, 327680, 0, 262135, 327680, 4, 262136, 262144, 9, 262137, 262144, 9, 262138, 327680, 3, 524269, 262144, 9, 524270, 262144, 9, 524271, 262144, 9, 524272, 262144, 9, 524277, 262144, 9, 524278, 262144, 9, 524279, 262144, 9, 524280, 262144, 9, 524281, 262144, 9, 524282, 262144, 9, 524283, 262144, 9, 524284, 327680, 1, 524285, 327680, 8, 458754, 327680, 8, 458755, 327680, 2, 458756, 262144, 9, 458757, 262144, 9, 458758, 262144, 9, 458759, 262144, 9, 458760, 262144, 9, 458761, 262144, 9, 458762, 262144, 9, 458763, 262144, 9, 458764, 262144, 9, 458765, 262144, 9, 458766, 262144, 9, 458767, 262144, 9, 458768, 262144, 9, 458769, 262144, 9, 458770, 262144, 9, 458771, 262144, 9, 458772, 262144, 9, 458773, 262144, 9, 458774, 262144, 9, 458775, 262144, 9, 458776, 262144, 9, 458777, 262144, 9, 458778, 262144, 9, 262155, 327680, 4, 262156, 262144, 9, 262157, 262144, 9, 262158, 327680, 3, -786451, 0, 12, -786450, 0, 1, -786449, 0, 1, -786448, 0, 1, -786447, 0, 11, -655374, 0, 12, -655373, 0, 1, -655372, 0, 11, -524299, 0, 12, -524298, 0, 1, -524297, 0, 11, -393223, 0, 12, -393222, 0, 1, -393221, 0, 11, -262147, 327680, 4, -262146, 262144, 9, -262145, 327680, 3, -327671, 327680, 4, -327670, 262144, 9, -327669, 327680, 3, -720886, 0, 12, -720885, 0, 1, -720884, 0, 11, -524275, 0, 12, -524274, 0, 1, -524273, 0, 11, -327663, 327680, 4, -327662, 262144, 9, -327661, 262144, 9, -327660, 327680, 3, -589802, 0, 12, -589801, 0, 1, -589800, 0, 1, -589799, 0, 1, -589798, 0, 11, -524306, 0, 8, -393231, 0, 8, -262155, 327680, 0, -262162, 327680, 0)
+layer_0/tile_data = PackedInt32Array(-1179642, 0, 1, -1179641, 0, 1, -1179640, 0, 1, -1179639, 0, 1, -1179638, 0, 1, -1179637, 0, 1, -1179636, 0, 1, -1179635, 0, 1, -1179634, 0, 1, -1179633, 0, 1, -1179632, 0, 1, -1179631, 0, 1, -1179630, 0, 1, -1179629, 0, 1, -1179628, 0, 1, -1179627, 0, 1, -1179626, 0, 1, -1179625, 0, 1, -1179624, 0, 1, -1179623, 0, 1, -1179622, 0, 1, -1114131, 0, 1, -1114130, 0, 1, -1114129, 0, 1, -1114128, 0, 1, -1114127, 0, 1, -1114126, 0, 1, -1114125, 0, 1, -1114124, 0, 1, -1114123, 0, 1, -1114122, 0, 1, -1114121, 0, 1, -1114120, 0, 1, -1114119, 0, 1, -1114118, 0, 1, -1114117, 0, 1, -1114116, 0, 1, -1114115, 0, 1, -1114114, 0, 1, -1114113, 0, 1, -1179648, 0, 1, -1179647, 0, 1, -917491, 0, 8, -524289, 0, 8, -655364, 0, 8, -720903, 0, 8, -917517, 0, 8, -851978, 0, 8, -983024, 0, 8, -851949, 0, 8, -917481, 0, 8, -7, 262144, 9, -6, 262144, 9, -5, 262144, 9, -4, 262144, 9, -3, 262144, 9, -2, 262144, 9, -1, 262144, 9, -65528, 262144, 9, -65527, 262144, 9, -65526, 262144, 9, -65525, 262144, 9, -65524, 262144, 9, -65523, 262144, 9, -65522, 262144, 9, -65521, 262144, 9, -65520, 262144, 9, -65519, 262144, 9, -65512, 262144, 9, -65511, 262144, 9, -65510, 262144, 9, -131065, 262144, 12, -196602, 262144, 12, -262139, 262144, 12, -262142, 262144, 11, -196607, 262144, 11, -131072, 262144, 11, -65529, 327680, 2, -131066, 327680, 2, -196603, 327680, 2, -65536, 327680, 1, -131071, 327680, 1, -196606, 327680, 1, -65535, 327680, 8, -65534, 327680, 8, -65533, 327680, 8, -65532, 327680, 8, -65531, 327680, 8, -65530, 327680, 8, -131067, 327680, 8, -131068, 327680, 8, -131069, 327680, 8, -131070, 327680, 8, -65518, 262144, 9, 458748, 262144, 11, 393213, 262144, 11, 458749, 327680, 1, 327682, 262144, 12, 393218, 327680, 2, 393219, 262144, 12, -18, 262144, 9, -17, 262144, 9, -16, 262144, 9, -15, 262144, 9, -14, 262144, 9, -13, 262144, 9, -12, 262144, 9, -19, 262144, 9, 65558, 327680, 0, 131092, 327680, 0, 196626, 327680, 0, 262135, 327680, 4, 262136, 262144, 9, 262137, 262144, 9, 262138, 327680, 3, 524269, 262144, 9, 524270, 262144, 9, 524271, 262144, 9, 524272, 262144, 9, 524277, 262144, 9, 524278, 262144, 9, 524279, 262144, 9, 524280, 262144, 9, 524281, 262144, 9, 524282, 262144, 9, 524283, 262144, 9, 524284, 327680, 1, 524285, 327680, 8, 458754, 327680, 8, 458755, 327680, 2, 458756, 262144, 9, 458757, 262144, 9, 458758, 262144, 9, 458759, 262144, 9, 458760, 262144, 9, 458761, 262144, 9, 458762, 262144, 9, 458763, 262144, 9, 458764, 262144, 9, 458765, 262144, 9, 458766, 262144, 9, 458767, 262144, 9, 458768, 262144, 9, 458769, 262144, 9, 458770, 262144, 9, 458771, 262144, 9, 458772, 262144, 9, 458773, 262144, 9, 458774, 262144, 9, 458775, 262144, 9, 458776, 262144, 9, 458777, 262144, 9, 458778, 262144, 9, 262155, 327680, 4, 262156, 262144, 9, 262157, 262144, 9, 262158, 327680, 3, -786451, 0, 12, -786450, 0, 1, -786449, 0, 1, -786448, 0, 1, -786447, 0, 11, -655374, 0, 12, -655373, 0, 1, -655372, 0, 11, -524299, 0, 12, -524298, 0, 1, -524297, 0, 11, -393223, 0, 12, -393222, 0, 1, -393221, 0, 11, -262147, 327680, 4, -262146, 262144, 9, -262145, 327680, 3, -720884, 0, 11, -524275, 0, 12, -524274, 0, 1, -524273, 0, 11, -327663, 327680, 4, -327662, 262144, 9, -327661, 262144, 9, -327660, 327680, 3, -589802, 0, 12, -589801, 0, 1, -589800, 0, 1, -589799, 0, 1, -589798, 0, 11, -524306, 0, 8, -393231, 0, 8, -262155, 327680, 0, -262162, 327680, 0, -327670, 327680, 4, -327669, 262144, 9, -327668, 327680, 3, -458746, 327680, 4, -458745, 262144, 9, -458744, 327680, 3, -655353, 0, 8, -786423, 0, 8, -720885, 0, 12, -851957, 0, 8)
 
 [node name="Lever1" type="Area2D" parent="."]
 position = Vector2(-1926, -2352)
@@ -523,7 +530,7 @@ shape = SubResource("RectangleShape2D_ku4yi")
 
 [node name="Lever3" type="Area2D" parent="."]
 position = Vector2(-2105, 849)
-collision_mask = 2
+collision_mask = 18
 script = ExtResource("5_fldpk")
 metadata/_edit_group_ = true
 
@@ -542,7 +549,7 @@ shape = SubResource("RectangleShape2D_ku4yi")
 
 [node name="Lever4" type="Area2D" parent="."]
 position = Vector2(2797, 846)
-collision_mask = 2
+collision_mask = 18
 script = ExtResource("5_fldpk")
 metadata/_edit_group_ = true
 
@@ -561,7 +568,7 @@ shape = SubResource("RectangleShape2D_ku4yi")
 
 [node name="Button1" type="Area2D" parent="."]
 position = Vector2(-1991, -171)
-collision_mask = 2
+collision_mask = 18
 
 [node name="Button1" type="AnimatedSprite2D" parent="Button1"]
 position = Vector2(-5.00003, 9.99999)
@@ -577,6 +584,7 @@ shape = SubResource("CircleShape2D_eyel7")
 
 [node name="Layer3" type="StaticBody2D" parent="."]
 position = Vector2(2122, -6)
+collision_mask = 22
 
 [node name="Layer3Coll" type="CollisionShape2D" parent="Layer3"]
 position = Vector2(630.5, -58)
@@ -609,7 +617,7 @@ texture = ExtResource("11_7ieb1")
 
 [node name="Button2" type="Area2D" parent="."]
 position = Vector2(1665, 471)
-collision_mask = 2
+collision_mask = 18
 
 [node name="Button2" type="AnimatedSprite2D" parent="Button2"]
 position = Vector2(6.00003, 2.99998)
@@ -622,35 +630,35 @@ position = Vector2(6, 31)
 shape = SubResource("CircleShape2D_4j682")
 
 [node name="Layer2" type="StaticBody2D" parent="."]
-position = Vector2(-170, -594)
+position = Vector2(-1151, -64)
+collision_mask = 22
 
 [node name="PlanetMid4" type="Sprite2D" parent="Layer2"]
-position = Vector2(-1171, 530)
+position = Vector2(-189, 0)
 scale = Vector2(1.043, 1)
 texture = ExtResource("11_7ieb1")
 
 [node name="PlanetMid5" type="Sprite2D" parent="Layer2"]
-position = Vector2(-1038, 530)
+position = Vector2(-55, 0)
 scale = Vector2(1.043, 1)
 texture = ExtResource("11_7ieb1")
 
 [node name="PlanetMid6" type="Sprite2D" parent="Layer2"]
-position = Vector2(-905, 530)
+position = Vector2(80, 0)
 scale = Vector2(1.043, 1)
 texture = ExtResource("11_7ieb1")
 
 [node name="PlanetMid7" type="Sprite2D" parent="Layer2"]
-position = Vector2(-782, 530)
+position = Vector2(205, 0)
 scale = Vector2(0.890625, 1)
 texture = ExtResource("11_7ieb1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Layer2"]
 visible = false
-position = Vector2(-982, 530)
 shape = SubResource("RectangleShape2D_ojvyp")
 
 [node name="Lava" type="Area2D" parent="."]
-collision_mask = 2
+collision_mask = 18
 script = ExtResource("11_eowgx")
 
 [node name="Lava" type="Sprite2D" parent="Lava"]
@@ -660,11 +668,12 @@ scale = Vector2(2, 2.14844)
 texture = ExtResource("11_7308t")
 
 [node name="LavaColl" type="CollisionShape2D" parent="Lava"]
-position = Vector2(512.5, -393.5)
+position = Vector2(512.5, -362)
 shape = SubResource("RectangleShape2D_qbru2")
 
 [node name="Lava2" type="Area2D" parent="."]
 position = Vector2(-2, 827)
+collision_mask = 18
 script = ExtResource("11_eowgx")
 
 [node name="Lava" type="Sprite2D" parent="Lava2"]
@@ -674,12 +683,12 @@ scale = Vector2(4.00781, 3.21875)
 texture = ExtResource("11_7308t")
 
 [node name="LavaColl1" type="CollisionShape2D" parent="Lava2"]
-position = Vector2(3, -8)
+position = Vector2(3, 37)
 shape = SubResource("RectangleShape2D_u4x0c")
 
 [node name="Lever2" type="Area2D" parent="."]
 position = Vector2(2958, -2344)
-collision_mask = 6
+collision_mask = 18
 
 [node name="Lever2" type="AnimatedSprite2D" parent="Lever2"]
 position = Vector2(2, -1.73204)
@@ -694,8 +703,8 @@ position = Vector2(0.5, 9.5)
 shape = SubResource("RectangleShape2D_e84aa")
 
 [node name="Layer1" type="StaticBody2D" parent="."]
-position = Vector2(510, -2240)
-collision_mask = 6
+position = Vector2(512, -2240)
+collision_mask = 22
 
 [node name="Layer11" type="Sprite2D" parent="Layer1"]
 position = Vector2(64, 0)
@@ -716,20 +725,6 @@ texture = ExtResource("13_2e0v5")
 [node name="Layer1Coll" type="CollisionShape2D" parent="Layer1"]
 visibility_layer = 6
 shape = SubResource("RectangleShape2D_pwnq8")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 657.0
-offset_top = -909.0
-offset_right = 1715.0
-offset_bottom = 407.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Coin" parent="." instance=ExtResource("13_cux4k")]
 position = Vector2(1859, -1281)
@@ -778,6 +773,7 @@ position = Vector2(-1118, -1790)
 
 [node name="Layer4" type="StaticBody2D" parent="."]
 position = Vector2(-1684, 985)
+collision_mask = 22
 
 [node name="Layer4Coll" type="CollisionShape2D" parent="Layer4"]
 position = Vector2(19.75, -25)
@@ -804,7 +800,7 @@ texture = ExtResource("11_7ieb1")
 position = Vector2(-1835, -163)
 
 [node name="Mob2" parent="." instance=ExtResource("17_po02m")]
-position = Vector2(1807, 478)
+position = Vector2(2407, 842)
 
 [node name="Mob3" parent="." instance=ExtResource("17_po02m")]
 position = Vector2(3164, -1192)
@@ -813,25 +809,28 @@ position = Vector2(3164, -1192)
 position = Vector2(-2000, 850)
 
 [node name="LeftSide" type="StaticBody2D" parent="."]
+collision_mask = 22
 
 [node name="LeftSideColl" type="CollisionShape2D" parent="LeftSide"]
 position = Vector2(-2614.5, -862.25)
 shape = SubResource("RectangleShape2D_02jfb")
 
 [node name="RightSide" type="StaticBody2D" parent="."]
+collision_mask = 22
 
 [node name="RightSideColl" type="CollisionShape2D" parent="RightSide"]
 position = Vector2(3666.5, -739)
 shape = SubResource("RectangleShape2D_rqk68")
 
 [node name="Top" type="StaticBody2D" parent="."]
+collision_mask = 22
 
 [node name="TopColl" type="CollisionShape2D" parent="Top"]
 position = Vector2(546.25, -2978)
 shape = SubResource("RectangleShape2D_0hjeu")
 
 [node name="Bottom" type="Area2D" parent="."]
-collision_mask = 2
+collision_mask = 18
 script = ExtResource("18_8on73")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
@@ -859,17 +858,41 @@ position = Vector2(-707, -960)
 
 [node name="HUD_2" parent="CanvasLayer" instance=ExtResource("21_7qrdy")]
 
+[node name="Spring3" parent="." instance=ExtResource("19_bk12g")]
+position = Vector2(3115, -191)
+
+[node name="Spring4" parent="." instance=ExtResource("19_bk12g")]
+position = Vector2(1864, -192)
+
+[node name="Spring5" parent="." instance=ExtResource("19_bk12g")]
+position = Vector2(-675, -192)
+
+[node name="Spring6" parent="." instance=ExtResource("19_bk12g")]
+position = Vector2(1230, 831)
+
+[node name="Spring7" parent="." instance=ExtResource("19_bk12g")]
+position = Vector2(-64, -1210)
+
+[node name="Spring8" parent="." instance=ExtResource("19_bk12g")]
+position = Vector2(956, -958)
+
+[node name="Spring9" parent="." instance=ExtResource("19_bk12g")]
+position = Vector2(958, -1341)
+
+[node name="Spring10" parent="." instance=ExtResource("19_bk12g")]
+position = Vector2(-1340, 823)
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_y6coh")
+autoplay = true
+
 [connection signal="area_entered" from="Lever1" to="." method="_on_lever_1_area_entered"]
 [connection signal="body_entered" from="Lever1" to="." method="_on_lever_1_area_entered"]
-[connection signal="area_entered" from="Lever3" to="." method="_on_lever_1_area_entered"]
 [connection signal="area_entered" from="Lever3" to="." method="_on_lever_3_area_entered"]
 [connection signal="area_exited" from="Lever3" to="." method="_on_lever_3_area_exited"]
-[connection signal="body_entered" from="Lever3" to="." method="_on_lever_1_area_entered"]
 [connection signal="body_entered" from="Lever3" to="." method="_on_lever_3_area_entered"]
-[connection signal="area_entered" from="Lever4" to="." method="_on_lever_1_area_entered"]
 [connection signal="area_entered" from="Lever4" to="." method="_on_lever_4_area_entered"]
 [connection signal="area_exited" from="Lever4" to="." method="_on_lever_4_area_exited"]
-[connection signal="body_entered" from="Lever4" to="." method="_on_lever_1_area_entered"]
 [connection signal="body_entered" from="Lever4" to="." method="_on_lever_4_area_entered"]
 [connection signal="body_entered" from="Button1" to="." method="_on_button_1_body_entered"]
 [connection signal="body_exited" from="Button1" to="." method="_on_button_1_body_exited"]
