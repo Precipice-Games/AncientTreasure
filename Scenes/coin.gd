@@ -12,4 +12,8 @@ func _process(delta):
 
 
 func _on_body_entered(body):
+	if body.name == "Player1":
+		body.collect_coin()
+	elif body.name=="Player2":
+		print("player 1 collect")
 	queue_free()

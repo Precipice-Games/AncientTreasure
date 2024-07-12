@@ -21,7 +21,7 @@ func _process(delta):
 func _on_lava_body_entered(body):
 	if body.is_in_group("players"):
 		print("dies but not")
-		#body.die()
+		body.die()
 		game_over()
 
 

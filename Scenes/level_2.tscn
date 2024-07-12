@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bsv20cedy3nm7"]
+[gd_scene load_steps=33 format=3 uid="uid://bsv20cedy3nm7"]
 
 [ext_resource type="PackedScene" uid="uid://byahlv8nshfoj" path="res://Scenes/tiles.tscn" id="1_net83"]
 [ext_resource type="Script" path="res://Scenes/level_2.gd" id="1_rbfd0"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://bo0ttthw8puw4" path="res://Scenes/player_1.tscn" id="11_lyquc"]
 [ext_resource type="PackedScene" uid="uid://cqr7mrda7e8d7" path="res://Scenes/player_2.tscn" id="12_rsqbr"]
 [ext_resource type="PackedScene" uid="uid://u82vhebonun" path="res://Scenes/coin.tscn" id="15_28y3o"]
+[ext_resource type="PackedScene" uid="uid://c30c2pnfj8o0u" path="res://Scenes/HUD.tscn" id="16_d6eos"]
+[ext_resource type="PackedScene" uid="uid://b5a4rc3031ke5" path="res://Scenes/hud_2.tscn" id="17_nkkgh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c4xcu"]
 animations = [{
@@ -133,7 +135,7 @@ size = Vector2(271, 4400)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1aola"]
 size = Vector2(514, 126)
 
-[node name="Node2D" type="Node2D"]
+[node name="level_2" type="Node2D"]
 position = Vector2(585, 630)
 script = ExtResource("1_rbfd0")
 
@@ -693,6 +695,12 @@ position = Vector2(3292, -210)
 
 [node name="Coin23" parent="." instance=ExtResource("15_28y3o")]
 position = Vector2(767, -2243)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("16_d6eos")]
+
+[node name="HUD_2" parent="CanvasLayer" instance=ExtResource("17_nkkgh")]
 
 [connection signal="body_entered" from="Lever1" to="." method="_on_lever_1_body_entered"]
 [connection signal="body_entered" from="MovingPlat/Button1" to="." method="_on_button_1_body_entered"]
