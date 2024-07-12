@@ -125,5 +125,3 @@ func _on_coin_1_body_entered(body):
 	coin = true
 	if coin:
 		currency += 1
-		
-
