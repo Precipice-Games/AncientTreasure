@@ -30,7 +30,7 @@ animations = [{
 radius = 53.0
 
 [node name="Coin" type="Area2D"]
-collision_mask = 2
+collision_mask = 18
 script = ExtResource("1_lgvht")
 
 [node name="CoinSpr" type="AnimatedSprite2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bsv20cedy3nm7"]
+[gd_scene load_steps=31 format=3 uid="uid://bsv20cedy3nm7"]
 
 [ext_resource type="PackedScene" uid="uid://byahlv8nshfoj" path="res://Scenes/tiles.tscn" id="1_net83"]
 [ext_resource type="Script" path="res://Scenes/level_2.gd" id="1_rbfd0"]
@@ -131,10 +131,7 @@ size = Vector2(249.5, 4407)
 size = Vector2(271, 4400)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1aola"]
-size = Vector2(850, 88.4375)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvuyi"]
-size = Vector2(3569, 634.5)
+size = Vector2(514, 126)
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(585, 630)
@@ -145,7 +142,7 @@ layer_0/tile_data = PackedInt32Array(-1114107, 393216, 8, -1114098, 393216, 8, -
 
 [node name="Lever1" type="Area2D" parent="."]
 position = Vector2(-588, -1199)
-collision_mask = 2
+collision_mask = 18
 script = ExtResource("2_xxee1")
 metadata/_edit_group_ = true
 
@@ -162,10 +159,11 @@ shape = SubResource("RectangleShape2D_nwirv")
 
 [node name="MovingPlat" type="StaticBody2D" parent="."]
 position = Vector2(2600, 60)
+collision_mask = 22
 
 [node name="Button1" type="Area2D" parent="MovingPlat"]
 position = Vector2(694, -125)
-collision_mask = 2
+collision_mask = 18
 metadata/_edit_group_ = true
 
 [node name="Button1" type="AnimatedSprite2D" parent="MovingPlat/Button1"]
@@ -180,7 +178,7 @@ shape = SubResource("CircleShape2D_xqj72")
 
 [node name="Button2" type="Area2D" parent="MovingPlat"]
 position = Vector2(-629, -116)
-collision_mask = 2
+collision_mask = 18
 metadata/_edit_group_ = true
 
 [node name="Button2" type="AnimatedSprite2D" parent="MovingPlat/Button2"]
@@ -251,6 +249,7 @@ texture = ExtResource("9_hib0r")
 
 [node name="Lava1" type="Area2D" parent="."]
 position = Vector2(-2034, -174)
+collision_mask = 18
 
 [node name="LavaColl" type="CollisionShape2D" parent="Lava1"]
 position = Vector2(1842, 238)
@@ -388,13 +387,14 @@ player1 = NodePath("../Player1")
 player2 = NodePath("../Player2")
 
 [node name="Player1" parent="Cam" instance=ExtResource("11_lyquc")]
-position = Vector2(-1257, -2054)
+position = Vector2(-871, -1899)
 
 [node name="Player2" parent="Cam" instance=ExtResource("12_rsqbr")]
-position = Vector2(-908, -2056)
+position = Vector2(-1282, -1896)
 
 [node name="Lava2" type="Area2D" parent="."]
 position = Vector2(142, 722)
+collision_mask = 18
 
 [node name="Lava2" type="Sprite2D" parent="Lava2"]
 position = Vector2(1714, 238)
@@ -470,6 +470,7 @@ shape = SubResource("RectangleShape2D_6nfi1")
 
 [node name="Lava3" type="Area2D" parent="."]
 position = Vector2(-5618, 722)
+collision_mask = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lava3"]
 position = Vector2(2738, 238)
@@ -545,6 +546,7 @@ texture = ExtResource("8_et3hr")
 
 [node name="Lava4" type="Area2D" parent="."]
 position = Vector2(1335, 74)
+collision_mask = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lava4"]
 position = Vector2(9, -10)
@@ -584,6 +586,7 @@ position = Vector2(-1667, -1599)
 position = Vector2(2941, -1598)
 
 [node name="Top" type="StaticBody2D" parent="."]
+collision_mask = 22
 
 [node name="TopColl" type="CollisionShape2D" parent="Top"]
 position = Vector2(298, -3320)
@@ -591,6 +594,7 @@ shape = SubResource("RectangleShape2D_q65yp")
 
 [node name="Left" type="StaticBody2D" parent="."]
 position = Vector2(-5635, -310)
+collision_mask = 22
 
 [node name="LeftColl" type="CollisionShape2D" parent="Left"]
 position = Vector2(2684, -809)
@@ -598,6 +602,7 @@ shape = SubResource("RectangleShape2D_dso72")
 
 [node name="Right" type="StaticBody2D" parent="."]
 position = Vector2(5256, -173)
+collision_mask = 22
 
 [node name="RightColl" type="CollisionShape2D" parent="Right"]
 position = Vector2(-1657.5, -922)
@@ -635,9 +640,10 @@ position = Vector2(-2318, -2236)
 
 [node name="LevelBlock" type="StaticBody2D" parent="."]
 position = Vector2(-1642, -2619)
+collision_mask = 18
 
 [node name="LevelBlockColl" type="CollisionShape2D" parent="LevelBlock"]
-position = Vector2(-31, -143)
+position = Vector2(-23, -4)
 shape = SubResource("RectangleShape2D_1aola")
 
 [node name="Coin" parent="." instance=ExtResource("15_28y3o")]
@@ -688,16 +694,6 @@ position = Vector2(3292, -210)
 [node name="Coin23" parent="." instance=ExtResource("15_28y3o")]
 position = Vector2(767, -2243)
 
-[node name="Node" type="Node2D" parent="."]
-position = Vector2(2314, -1400)
-
-[node name="TeamSwitch" type="Area2D" parent="."]
-position = Vector2(-13, 774)
-
-[node name="TeamSwitchColl" type="CollisionShape2D" parent="TeamSwitch"]
-position = Vector2(11, -191.75)
-shape = SubResource("RectangleShape2D_wvuyi")
-
 [connection signal="body_entered" from="Lever1" to="." method="_on_lever_1_body_entered"]
 [connection signal="body_entered" from="MovingPlat/Button1" to="." method="_on_button_1_body_entered"]
 [connection signal="body_exited" from="MovingPlat/Button1" to="." method="_on_button_1_body_exited"]
@@ -707,4 +703,3 @@ shape = SubResource("RectangleShape2D_wvuyi")
 [connection signal="body_entered" from="Lava2" to="." method="_on_lava_body_entered"]
 [connection signal="body_entered" from="Lava3" to="." method="_on_lava_body_entered"]
 [connection signal="body_entered" from="Lava4" to="." method="_on_lava_body_entered"]
-[connection signal="body_entered" from="TeamSwitch" to="." method="_on_team_switch_body_entered"]
