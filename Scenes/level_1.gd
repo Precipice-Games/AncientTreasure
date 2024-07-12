@@ -10,6 +10,9 @@ var currency = 0
 @export var button1on:bool = false
 @export var button2on:bool = false
 
+@export var lava:bool = false
+
+@export var coin:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -80,6 +83,7 @@ func _on_button_2_body_exited(body):
 
 
 func _on_lava_body_entered(body):
+	lava = true
 	game_over()
 
 
@@ -114,3 +118,10 @@ func _on_lever_4_area_entered(area):
 		lever4Pulled = true
 	layer4()
 
+
+
+
+func _on_coin_1_body_entered(body):
+	coin = true
+	if coin:
+		currency += 1

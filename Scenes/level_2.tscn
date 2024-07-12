@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bsv20cedy3nm7"]
+[gd_scene load_steps=17 format=3 uid="uid://bsv20cedy3nm7"]
 
 [ext_resource type="PackedScene" uid="uid://byahlv8nshfoj" path="res://Scenes/tiles.tscn" id="1_net83"]
 [ext_resource type="Script" path="res://Scenes/Lever.gd" id="2_xxee1"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://cgqn6q13ptetr" path="res://Art/kenney_platformer-pack-redux/PNG/Tiles/leverLeft.png" id="5_e26u3"]
 [ext_resource type="Texture2D" uid="uid://djtncksl4g0ss" path="res://Art/kenney_abstract-platformer/PNG/Other/buttonRed_pressed.png" id="6_xnp21"]
 [ext_resource type="Texture2D" uid="uid://vtkrn02ikd3j" path="res://Art/kenney_abstract-platformer/PNG/Other/buttonRed.png" id="7_1akpo"]
+[ext_resource type="PackedScene" uid="uid://ernfnld2kdbc" path="res://Scenes/camera.tscn" id="8_8pkil"]
+[ext_resource type="PackedScene" uid="uid://bo0ttthw8puw4" path="res://Scenes/player_1.tscn" id="9_be342"]
+[ext_resource type="PackedScene" uid="uid://cqr7mrda7e8d7" path="res://Scenes/player_2.tscn" id="10_vu13m"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c4xcu"]
 animations = [{
@@ -154,3 +157,14 @@ animation = &"ButtonOn"
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Button2"]
 position = Vector2(6, 31)
 shape = SubResource("CircleShape2D_apkcs")
+
+[node name="TeamCamera" parent="." node_paths=PackedStringArray("player1", "player2") instance=ExtResource("8_8pkil")]
+position = Vector2(-1646, -2802)
+player1 = NodePath("Player1")
+player2 = NodePath("Player2")
+
+[node name="Player1" parent="TeamCamera" instance=ExtResource("9_be342")]
+position = Vector2(628, 38)
+
+[node name="Player2" parent="TeamCamera" instance=ExtResource("10_vu13m")]
+position = Vector2(-628, 38)
