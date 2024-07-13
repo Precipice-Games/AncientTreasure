@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dblkexn4i66i"]
+[gd_scene load_steps=10 format=3 uid="uid://dblkexn4i66i"]
 
 [ext_resource type="Script" path="res://Scenes/game_over.gd" id="1_k5vow"]
 [ext_resource type="FontFile" uid="uid://dyrljefvnufcy" path="res://Art/Anton_SC,Teko/Teko/Teko-VariableFont_wght.ttf" id="2_1xpnm"]
+[ext_resource type="Texture2D" uid="uid://vo365udnlg62" path="res://Art/b0614a2b-ba3d-4210-ad8e-70fcbccf1728_scaled.jpg" id="2_b4i3h"]
 [ext_resource type="FontFile" uid="uid://c378g3iwmyjoq" path="res://Art/Anton_SC,Teko/Anton_SC/AntonSC-Regular.ttf" id="3_arwjk"]
 [ext_resource type="AudioStream" uid="uid://cjdj2hrcqjm7u" path="res://Music/mixkit-arcade-retro-game-over-213.wav" id="4_qgcpu"]
+[ext_resource type="FontFile" uid="uid://b11b1munp5hbe" path="res://Art/Anton_SC/AntonSC-Regular.ttf" id="6_tla7i"]
+[ext_resource type="Texture2D" uid="uid://cnhx06v3voa1s" path="res://Art/Untitled_Artwork-removebg-preview 2.png" id="7_fwcxn"]
 
 [sub_resource type="Theme" id="Theme_agjwe"]
 
@@ -22,6 +25,11 @@ corner_radius_bottom_left = 12
 [node name="GameOver" type="CanvasLayer"]
 script = ExtResource("1_k5vow")
 level1_scene = "res://Scenes/level_1.tscn"
+
+[node name="SkyBackground" type="Sprite2D" parent="."]
+position = Vector2(975, 536)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_b4i3h")
 
 [node name="GameOver" type="Label" parent="."]
 anchors_preset = 8
@@ -73,5 +81,27 @@ uppercase = true
 
 [node name="GameOver2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_qgcpu")
+
+[node name="Company" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1477.0
+offset_top = -167.0
+offset_right = 1751.0
+offset_bottom = -9.0
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_constants/line_spacing = -24
+theme_override_fonts/font = ExtResource("6_tla7i")
+theme_override_font_sizes/font_size = 50
+text = "Pixel Pulse
+Studios"
+horizontal_alignment = 1
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(1813, 968)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_fwcxn")
 
 [connection signal="pressed" from="PressHere" to="." method="_on_press_here_pressed"]

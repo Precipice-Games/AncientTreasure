@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5a4rc3031ke5"]
+[gd_scene load_steps=4 format=3 uid="uid://b5a4rc3031ke5"]
 
 [ext_resource type="Script" path="res://Scenes/hud_2.gd" id="1_20ukd"]
+[ext_resource type="FontFile" uid="uid://b11b1munp5hbe" path="res://Art/Anton_SC/AntonSC-Regular.ttf" id="2_jqseu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ukq4o"]
 bg_color = Color(0.590499, 0.74415, 0.936552, 1)
@@ -39,10 +40,14 @@ show_percentage = false
 
 [node name="Coins" type="Label" parent="."]
 layout_mode = 0
-offset_left = 34.0
-offset_top = 50.0
-offset_right = 173.0
-offset_bottom = 153.0
+offset_left = 27.0
+offset_top = 23.0
+offset_right = 166.0
+offset_bottom = 126.0
+theme_override_colors/font_outline_color = Color(0.203922, 0.419608, 0.596078, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_jqseu")
+theme_override_font_sizes/font_size = 40
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -1,8 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://dolspe5lbnq3e"]
+[gd_scene load_steps=10 format=3 uid="uid://dolspe5lbnq3e"]
 
+[ext_resource type="Script" path="res://Scenes/player_2_win.gd" id="1_21voe"]
+[ext_resource type="Texture2D" uid="uid://ckwrjxmu0fi82" path="res://Art/Screenshot 2024-07-12 at 10.22.51 PM.png" id="1_qy276"]
 [ext_resource type="FontFile" uid="uid://b11b1munp5hbe" path="res://Art/Anton_SC/AntonSC-Regular.ttf" id="1_v22qx"]
+[ext_resource type="Texture2D" uid="uid://chcybksyb7in5" path="res://Art/kenney_alien-ufo-pack/PNG/laserBlue2.png" id="3_jepsu"]
+[ext_resource type="Texture2D" uid="uid://c56ali7nothkc" path="res://Art/pngimg.com_-_treasure_chest_PNG45-removebg-preview.png" id="4_dy8iw"]
+[ext_resource type="Texture2D" uid="uid://dv8i00a4si8or" path="res://Art/kenney_alien-ufo-pack/PNG/shipBlue_manned.png" id="5_vvolt"]
+[ext_resource type="Texture2D" uid="uid://bsqmi0dx7vb55" path="res://Art/kenney_alien-ufo-pack/PNG/dome.png" id="6_gkias"]
+[ext_resource type="FontFile" uid="uid://c378g3iwmyjoq" path="res://Art/Anton_SC,Teko/Anton_SC/AntonSC-Regular.ttf" id="7_cfoj1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ob683"]
+bg_color = Color(0.454902, 0.694118, 0.772549, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.215686, 0.407843, 0.470588, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [node name="Player2win" type="CanvasLayer"]
+script = ExtResource("1_21voe")
+start_menu = "res://Scenes/start_menu.tscn"
+level1_scene = "res://Scenes/level_1.tscn"
+
+[node name="WinnerBackground" type="Sprite2D" parent="."]
+position = Vector2(963, 538.5)
+scale = Vector2(3.00773, 2.42794)
+texture = ExtResource("1_qy276")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8
@@ -21,3 +48,98 @@ theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("1_v22qx")
 theme_override_font_sizes/font_size = 150
 text = "Player 2 wins!"
+
+[node name="LaserBlue2" type="Sprite2D" parent="."]
+position = Vector2(1691, 336)
+rotation = 0.382227
+scale = Vector2(2.65697, 2.09557)
+texture = ExtResource("3_jepsu")
+
+[node name="TreasureChest" type="Sprite2D" parent="."]
+position = Vector2(244, 858)
+scale = Vector2(0.707101, 0.646341)
+texture = ExtResource("4_dy8iw")
+
+[node name="ShipBlueManned" type="Sprite2D" parent="."]
+position = Vector2(1743, 200.625)
+rotation = 0.31765
+scale = Vector2(1.77419, 1.79828)
+texture = ExtResource("5_vvolt")
+
+[node name="Dome" type="Sprite2D" parent="."]
+position = Vector2(1763, 136)
+rotation = 0.31765
+scale = Vector2(1.90362, 1.67347)
+texture = ExtResource("6_gkias")
+
+[node name="Restart" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -239.0
+offset_top = 159.0
+offset_right = 237.0
+offset_bottom = 290.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ob683")
+
+[node name="Restart2" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = 87.0
+offset_right = 254.0
+offset_bottom = 357.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/line_spacing = -32
+theme_override_fonts/font = ExtResource("7_cfoj1")
+theme_override_font_sizes/font_size = 100
+text = "play again!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Main_Menu" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -237.0
+offset_top = 341.0
+offset_right = 239.0
+offset_bottom = 461.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ob683")
+
+[node name="Main" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = 267.0
+offset_right = 254.0
+offset_bottom = 537.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/line_spacing = -32
+theme_override_fonts/font = ExtResource("7_cfoj1")
+theme_override_font_sizes/font_size = 100
+text = "Main Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Main_Menu" to="." method="_on_main_menu_pressed"]
